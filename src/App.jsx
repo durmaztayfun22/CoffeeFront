@@ -10,21 +10,21 @@ const api = 'https://strapidevelopment.onrender.com/api/coffees';
 // Ana sayfa içeriği
 const HomeContent = ({ data }) => (
   <>
-    {data && data.data && data.data.length >  0 && data.data.map((item) => {
+    { data?.data?.length >  0 && data?.data?.map((item) => {
       return (
         <div key={item.id}>
           <div className="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
             <div className="my-3 py-3">
               <div className='item-container' id='container'>
                 <div className='item-details'>
-                  <h2 className="display-5">{item.attributes.name}</h2>
-                  <p>Description: {item.attributes.description}</p>
-                  <p>Origin: {item.attributes.origin}</p>
+                  <h2 className="display-5">{item?.attributes?.name}</h2>
+                  <p>Description: {item?.attributes?.description}</p>
+                  <p>Origin: {item?.attributes?.origin}</p>
                 </div>
               </div>
             </div>
             <div className="bg-body-tertiary shadow-sm mx-auto" id='image'  >
-              <img src={`../images/${item.attributes.name}.jpg`} alt={item.attributes.name} style={{ width: '700px', height: '800px' }} />
+              <img src={`../images/${item?.attributes?.name}.jpg`} alt={item?.attributes?.name} style={{ width: '700px', height: '800px' }} />
             </div>
           </div>
         </div>
