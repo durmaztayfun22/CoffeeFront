@@ -7,30 +7,25 @@ import './App.css';
 
 const api = 'https://strapidevelopment.onrender.com/api/coffees';
 
-// Ana sayfa içeriği
 const HomeContent = ({ data }) => (
-  <>
-    { data?.data?.length >  0 && data?.data?.map((item) => {
-      return (
-        <div key={item.id}>
-          <div className="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-            <div className="my-3 py-3">
-              <div className='item-container' id='container'>
-                <div className='item-details'>
-                  <h2 className="display-5">{item?.attributes?.name}</h2>
-                  <p>Description: {item?.attributes?.description}</p>
-                  <p>Origin: {item?.attributes?.origin}</p>
-                </div>
-              </div>
-            </div>
-            <div className="bg-body-tertiary shadow-sm mx-auto" id='image'  >
-              <img src={`../images/${item?.attributes?.name}.jpg`} alt={item?.attributes?.name} style={{ width: '700px', height: '800px' }} />
+  <div className="card-container">
+    {data?.data?.length > 0 && data?.data?.map((item) => (
+      <div key={item.id} className="card">
+        <div className="card-img" id='image'>
+          <img src={`../images/${item?.attributes?.name}.jpg`} alt={item?.attributes?.name} className="img-fluid" />
+        </div>
+        <div className="card-body">
+          <div className='item-container' id='container'>
+            <div className='item-details'>
+              <h2 className="card-title">{item?.attributes?.name}</h2>
+              <p className='card-text'>Description: {item?.attributes?.description}</p>
+              <p className='card-text'>Origin: {item?.attributes?.origin}</p>
             </div>
           </div>
         </div>
-      );
-    })}
-  </>
+      </div>
+    ))}
+  </div>
 );
 
 const Footer = () => (
@@ -70,29 +65,35 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <div className="container">
-        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-            <svg className="bi me-2" width="40" height="32"><use href="#bootstrap"/></svg>
-            <span className="fs-4">Coffee</span>
-          </a>
+    <>
+       <h1>Coffees</h1>
+       <Router>
+        <div className="container">
+          <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+              <svg className="bi me-2" width="40" height="32"><use href="#bootstrap"/></svg>
+              <span className="fs-4">Coffee</span>
+            </a>
 
-          <ul className="nav nav-pills">
-            <li className="nav-item"><a href="/" className="nav-link">Home</a></li>
-            <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-            <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
-          </ul>
-        </header>
-        {/* Routes */}
-        <Routes>
-          <Route path="/" element={<HomeContent data={data} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+            <ul className="nav nav-pills">
+              <li className="nav-item"><a href="/" className="nav-link">Home</a></li>
+              <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
+              <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
+            </ul>
+          </header>
+          
+          {/* Routes */}
+          <Routes>
+            <Route path="/" element={<HomeContent data={data} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </>
+    
+    
   );
 }
 
