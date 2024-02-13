@@ -1,0 +1,17 @@
+// style.scss
+
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    )
+  )
+);
+
+// Buraya kendi özel SCSS kodlarınızı ekleyebilirsiniz.
