@@ -20,6 +20,7 @@ const HomeContent = ({ data }) => (
               <h2 className="card-title">{item?.attributes?.name}</h2>
               <p className='card-text'>Description: {item?.attributes?.description}</p>
               <p className='card-text'>Origin: {item?.attributes?.origin}</p>
+              <span className='card-text'>Price: {item?.attributes?.price}</span>
             </div>
           </div>
         </div>
@@ -35,13 +36,25 @@ const Footer = () => (
         <a href="/" className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
           <svg className="bi" width="30" height="24"><use xlinkHref="#bootstrap"/></svg>
         </a>
-        <span className="mb-3 mb-md-0 text-body-secondary">&copy;  2024 Company, Inc</span>
+        <span className="mb-3 mb-md-0 text-body-secondary"> 2024 Company, Copyright belongs to TAYFUN DURMAZ. </span>
       </div>
 
       <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li className="ms-3"><a className="text-body-secondary" href="#"><svg className="bi" width="24" height="24"><use xlinkHref="#twitter"/></svg></a></li>
-        <li className="ms-3"><a className="text-body-secondary" href="#"><svg className="bi" width="24" height="24"><use xlinkHref="#instagram"/></svg></a></li>
-        <li className="ms-3"><a className="text-body-secondary" href="#"><svg className="bi" width="24" height="24"><use xlinkHref="#facebook"/></svg></a></li>
+        <li className="ms-3">
+          <svg className="bi" width="24" height="24">
+            <a href="https://twitter.com/ttyfmdrmz"><image href="../images/twitter.png" width="24" height="24" alt="X" /></a>
+          </svg>
+        </li>
+        <li className="ms-3">
+          <svg className="bi" width="24" height="24">
+            <a href="https://www.instagram.com/ttyfndrmz/"><image href="../images/instagram.png" width="24" height="24" alt="instagram" /></a>
+          </svg>
+        </li>
+        <li className="ms-3">
+          <svg className="bi" width="24" height="24">
+            <a href="https://tr-tr.facebook.com/"><image href="../images/facebook.png" width="24" height="24" alt="facebook" /></a>
+          </svg>
+        </li>
       </ul>
     </footer>
   </div>
