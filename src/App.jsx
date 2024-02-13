@@ -23,8 +23,8 @@ const HomeContent = ({ data }) => (
                 </div>
               </div>
             </div>
-            <div className="bg-body-tertiary shadow-sm mx-auto" id='image' >
-              <img src={`../images/${item.attributes.name}.jpg`} alt={item.attributes.name} />
+            <div className="bg-body-tertiary shadow-sm mx-auto" id='image'  >
+              <img src={`../images/${item.attributes.name}.jpg`} alt={item.attributes.name} style={{ width: '700px', height: '800px' }} />
             </div>
           </div>
         </div>
