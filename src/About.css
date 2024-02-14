@@ -1,76 +1,63 @@
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
+/* Kartların genel stilini ayarlar */
+.my-frame {
+    border:  1px solid #ccc; /*  Çerçeve rengi */
+    margin:  20px auto; /* Ortalama boşluk */
+    max-width:  90%; /* Maksimum genişlik */
+    padding:  20px; /*  İç boşluk */
+    box-shadow:  0  4px  8px rgba(0,  0,  0,  0.1); /* Gölge efekti */
+  }
+  
+  
+  
+  .card-header, .card-footer {
+    padding:  0.5rem  1rem; /* Adjust padding as needed */
+  }
+  
+  .card-body {
+    padding:  1rem; /* Adjust padding as needed */
+  }
+  
+  /* If you want to apply these styles only to specific cards, use more specific selectors */
+  
+  
+  /* Kartın üzerine gelindiğinde gölgenin artmasını sağlar */
+  .card:hover {
+    box-shadow:   0   8px   16px   0 rgba(0,   0,   0,   0.2);
+  }
+  
+  /* Kart başlıklarının stilini ayarlar */
+  .card-header {
+    background-color: #f8f9fa; /* Başlık arka plan rengini ayarlar */
+    color: #343a40; /* Başlık yazı rengini ayarlar */
+    border-bottom:   1px solid #dee2e6; /* Alt   çizgi ekler */
+  }
+  
+  
+  
+  /* Kart metni için stil */
+  .card-text {
+    max-width:   100%; /* Maksimum genişliği sınırlar */
+    word-wrap:  break-word; /* Kelimelerin kırılmasını engeller */
+  }
+  
+  /* Kart metni içindeki listeler için stil */
+  .card-text ul {
+    list-style-type: disc; /* Listelerin simgesini ayarlar */
+    padding-left:   20px; /* Listelerin sol kenar boşluğunu ayarlar */
+  }
+  
+  /* Kart metni içindeki listelerin öğeleri için stil */
+  .card-text li {
+    margin-bottom:   10px; /* Listelerin alt kenar boşluğunu ayarlar */
+  }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-    }
-}
-
-.b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-}
-
-.bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-}
-
-.nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: var(--bd-violet-bg);
-    --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
-    --bs-btn-hover-border-color: #6528e0;
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
-    --bs-btn-active-border-color: #5a23c8;
-}
-
-.bd-mode-toggle {
-    z-index: 1500;
-}
-
-.bd-mode-toggle .dropdown-menu .active .bi {
-    display: block !important;
-}
+  /* Specific styles for custom-card */
+.custom-card .card-header, .custom-card .card-footer {
+    padding:  0.5rem  1rem; /* Adjust padding as needed */
+  }
+  
+  .custom-card .card-body {
+    padding:  1rem; /* Adjust padding as needed */
+  }
+  
+  
