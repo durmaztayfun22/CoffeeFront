@@ -7,6 +7,7 @@ import './App.css';
 
 const api = 'https://strapidevelopment.onrender.com/api/coffees';
 
+
 const HomeContent = ({ data }) => (
   <div className="card-container">
     {data?.data?.length > 0 && data?.data?.map((item) => (
@@ -79,20 +80,29 @@ function App() {
 
   return (
     <>
-       <h1>Coffees</h1>
        <Router>
-        <div className="container">
-          <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-              <svg className="bi me-2" width="40" height="32"><use href="#bootstrap"/></svg>
-              <span className="fs-4">Coffee</span>
-            </a>
+        <div className="container">  
+          <header className="header">
+            <video autoPlay loop muted playsInline className="fullscreen-video">
+              <source src="/videos/myVideo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            <div className="header-content">
+              <a href="/" className="title">
+                <span className="fs-4">Coffee</span>
+              </a>
 
-            <ul className="nav nav-pills">
-              <li className="nav-item"><a href="/" className="nav-link">Home</a></li>
-              <li className="nav-item"><Link to="/about" className="nav-link">About</Link></li>
-              <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
-            </ul>
+              <ul className="ul">
+                <li className="li"><a href="/" className="nav-link">Home</a></li>
+                <li className="li"><Link to="/about" className="nav-link">About</Link></li>
+                <li className="li"><Link to="/contact" className="nav-link">Contact</Link></li>
+              </ul>
+            </div>
+
+            <div className='headertitlebig'>
+              <h1>Coffees</h1>
+            </div>
           </header>
           
           {/* Routes */}
