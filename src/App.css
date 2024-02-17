@@ -15,11 +15,10 @@
   max-width: 100%;
 }
 
-
 .header {
   position: relative;
-  width:  100%;
-  height:  100vh; /* Videonun yüksekliğini düşür */
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
   padding: 0 5%;
   display: flex;
@@ -31,21 +30,21 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width:   100%; /* Videoyun genişliğini %100 olarak ayarla */
-  height:   100%; /* Videoyun yüksekliğini %100 olarak ayarla */
-  object-fit: contain; /* Videoyun içeriğinin tümünün görüntüleneceği bir alan oluştur */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   z-index: -1;
 }
 
 .header-content {
   position: absolute;
-  top:  0;
-  left:  0;
+  top: 0;
+  left: 0;
   padding: 20px 8%;
-  display: flex; /* Flexbox kullan */
-  justify-content: space-between; /*  İçeriği sağa ve sola hizala */
-  align-items: center; /* Dikey hizalama */
-  width:  100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .title {
@@ -53,7 +52,11 @@
   width: 80px;
 }
 
-.ul li{
+.ul {
+  margin-left: 0;
+}
+
+.ul li {
   color: black;
   list-style: none;
   display: inline-block;
@@ -72,16 +75,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1; /* Videodan üstte olmasını sağlar */
+  z-index: 1;
 }
 
 .headertitlebig h1 {
-  font-size: 10rem; /* Örneğin, varsayılan değer yerine rem birimini kullanabilirsiniz */
+  font-size: 10rem;
   color: #fff;
   font-weight: 600;
 }
 
-.headertitlebig h1:hover{
+.headertitlebig h1:hover {
   -webkit-text-stroke: 2px #fff;
   color: transparent;
 }
@@ -89,7 +92,7 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Kartları ortalamak için */
+  justify-content: center;
 }
 
 .card {
@@ -110,7 +113,7 @@
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   color: #333;
 }
@@ -120,59 +123,46 @@
   color: #666;
 }
 
-/* Yeni eklenen stil */
-@media (max-width: 750px) {
-  .card-container {
-    flex-direction: column; /* Kartları sütun şeklinde düzenle */
-    align-items: center; /* Kartları ortala */
-  }
-  .card {
-    width: calc(100% - 20px); /* Kartların genişliği tam ekran olacak şekilde ayarla */
-    margin: 10px 0; /* Kartlar arasındaki boşluk */
-  }
+.card-text.price {
+  font-size: 20px;
 }
 
-@media (max-width: 750px){
-  .header-video{
+@media (max-width: 750px) {
+  .header-video {
     width: 100%;
     height: auto;
     object-fit: contain;
   }
-}
 
-@media (max-width: 750px){
-  .header-video{
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-@media (max-width: 750px) {
   .header {
-    padding: 0 2%; /* Mobil cihazlarda padding'i azalt */
+    padding: 0 2%;
   }
 
   .header-content {
-    padding: 10px 2%; /* Mobil cihazlarda içerik padding'ini azalt */
+    padding: 10px 2%;
   }
 
   .title {
-    width: auto; /* Mobil cihazlarda başlık genişliğini otomatik ayarla */
-  }
-
-  .ul {
-    margin-left: 0; /* Mobil cihazlarda liste margin'ini kaldır */
+    width: auto;
   }
 
   .ul li {
-    margin-left: 0; /* Mobil cihazlarda liste elemanı margin'ini kaldır */
-    margin-bottom: 10px; /* Liste elemanları arasındaki boşluğu ayarla */
-    display: block; /* Mobil cihazlarda liste elemanlarını blok yap */
+    margin-left: 0;
+    margin-bottom: 10px;
+    display: block;
   }
 
   .headertitlebig h1 {
-    font-size: 6rem; /* Mobil cihazlarda başlık font boyutunu küçült */
+    font-size: 6rem;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: calc(100% - 20px);
+    margin: 10px 0;
   }
 }
-

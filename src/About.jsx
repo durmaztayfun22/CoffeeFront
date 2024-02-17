@@ -1,5 +1,5 @@
 import React from "react";
-
+import './About.css'
 const About = () => {
   return (
     <>
@@ -14,7 +14,7 @@ const About = () => {
               width="748"
               height="490"
             />
-            <div class="my-frame">
+            <div className="my-frame">
               <div className="row">
                 <div className="col-md-6">
                   <div className="card-header">
