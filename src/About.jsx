@@ -8,7 +8,7 @@ const About = () => {
           <h1 className="visually-hidden">Who We Are?</h1>
           <div className="px-4 py-5 my-5 text-center">
             <img
-              className="d-block mx-auto mb-4"
+              className="card-img"
               src="https://www.impactplus.com/hs-fs/hubfs/blog-image-uploads/best-about-us-pages.jpg?length=780&name=best-about-us-pages.jpg"
               alt=""
               width="748"
