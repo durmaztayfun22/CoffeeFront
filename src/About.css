@@ -1,8 +1,11 @@
 /* Kartların genel stilini ayarlar */
+main{
+  max-width: 100%;
+}
 .my-frame {
   border: 1px solid #ccc; /* Çerçeve rengi */
   margin: 20px auto; /* Ortalama boşluk */
-  max-width: 90%; /* Maksimum genişlik */
+  max-width: 100%; /* Maksimum genişlik */
   padding: 20px; /* İç boşluk */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
 }
