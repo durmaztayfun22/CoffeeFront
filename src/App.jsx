@@ -50,7 +50,7 @@ function App() {
       {data?.data?.length > 0 && data?.data?.map((item) => {
         return (
           <div key={item?.id} className="card">
-            <div className="card-img" id='image' onClick={() => handleImageClick(`../images/${item?.attributes?.name}.jpg`, item?.attributes?.slug)}>
+            <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
               <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
             </div>
             <Link to={`/coffeeDetails/${item?.attributes?.slug}`} href={`${item.id}`} key={item?.id} id={item?.id}>
