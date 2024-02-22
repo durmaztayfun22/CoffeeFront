@@ -1,24 +1,42 @@
 /* Contact.css */
-main {
+.main{
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
+}
+.kart {
+  width: 100%;
+  max-width: 600px; /* Adjust the maximum width as needed */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 20px;
+  background-color: #ffffff; /* Adjust background color as needed */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.kart-text {
+  font-size: 16px;
+}
+
+.kart-img {
+  width: 100%;
+  max-width: 400px; /* Adjust the maximum width of the image */
+  display: block;
+  margin: 0 auto 20px; /* Center the image horizontally and add space at the bottom */
 }
 
 @media (min-width: 768px) {
-  main {
-    max-width: 768px;
+  .kart {
+    padding: 30px;
   }
 }
 
 @media (min-width: 992px) {
-  main {
-    max-width: 992px;
+  .kart {
+    padding: 40px;
   }
 }
 
 @media (min-width: 1200px) {
-  main {
-    max-width: 1200px;
+  .kart {
+    padding: 50px;
   }
 }
