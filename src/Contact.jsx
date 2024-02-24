@@ -17,7 +17,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="Con-BodyImg">
-            <img src="../images/Support.jpg" alt="Support" className="Con-Body-img" />
+            <img src="https://gcdnb.pbrd.co/images/PdDQJf37lwrX.jpg?o=1" alt="Support" className="Con-Body-img" />
           </div>
         </div>
         <div className="Con-Body-Subject">
@@ -41,7 +41,7 @@ const Contact = () => {
             <h1 className="Conh1">How about a coffee break?🫵</h1>
           </div>
           <div className="Con-Img1">
-            <img src="../images/Acoffee.jpg" alt="Acoffee" className="Con-Img-1"/>
+            <img src="https://gcdnb.pbrd.co/images/TFPmgSFol3oD.jpg?o=1" alt="Acoffee" className="Con-Img-1"/>
           </div>
         </div>
       </div>

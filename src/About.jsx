@@ -9,7 +9,7 @@ const About = () => {
         <div className="About">
           <div className="Content-1">
             <div className="Content-1-img">
-              <img src="../images/coffee.jpg" alt="coffeeee" className="Contentİmg-1" />
+              <img src="https://gcdnb.pbrd.co/images/JUoQqxnOl2he.jpg?o=1" alt="coffeeee" className="Contentİmg-1" />
             </div>
             <div className="Content-subject-All">
               <div className="Content-title">
