@@ -4,11 +4,12 @@ import './Modal.css'  // Importing CSS file for styling
 // Functional component for a modal with props
 const Modal = ({src, alt, onClose}) => {
     return(
-        <div className="modal"> {/* Container for modal */}
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}> {/* Modal content area */}
-                <img src={src} alt={alt} className="img-fluid" onClick={onClose}/> {/* Image displayed in the modal */}
+        <div className="modal"  onClick={(e) => e.stopPropagation()}> {/* Container for modal, clicking anywhere outside modal will close it */}
+            <div className="modal-content" onClick={onClose}> {/* Modal content area */}
+                <img src={src} alt={alt} className="img-fluid" onClick={(e) => e.stopPropagation()} /> {/* Image displayed in the modal */}
             </div>
         </div>
+    
     )
 }
 

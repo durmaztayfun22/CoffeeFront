@@ -1,56 +1,118 @@
-/* Kartların genel stilini ayarlar */
-main{
-  max-width: 100%;
-}
-.my-frame {
-  border: 1px solid #ccc; /* Çerçeve rengi */
-  margin: 20px auto; /* Ortalama boşluk */
-  max-width: 100%; /* Maksimum genişlik */
-  padding: 20px; /* İç boşluk */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+/* Genel stiller */
+* {
+  box-sizing: border-box;
 }
 
-.card-header, .card-footer {
-  padding: 0.5rem 1rem; /* Ayarlanabilir iç boşluk */
+body {
+  margin: 0;
 }
 
-.card-body {
-  padding: 1rem; /* Ayarlanabilir iç boşluk */
+/* Ana içerik bölümü */
+main {
+  width: 100%;
+  padding: 20px; /* Kenar boşluğu ekleyelim */
 }
 
-/* Kartın üzerine gelindiğinde gölgenin artmasını sağlar */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+/* Hakkında bölümü */
+.About {
+  padding-top: 5%;
 }
 
-/* Kart başlıklarının stilini ayarlar */
-.card-header {
-  background-color: #f8f9fa; /* Başlık arka plan rengini ayarlar */
-  color: #343a40; /* Başlık yazı rengini ayarlar */
-  border-bottom: 1px solid #dee2e6; /* Alt çizgi ekler */
+/* İçerik 1 */
+.Content-1 {
+  position: relative;
+  width: 100%;
 }
 
-/* Kart metni için stil */
-.card-text {
-  max-width: 100%; /* Maksimum genişliği sınırlar */
-  word-wrap: break-word; /* Kelimelerin kırılmasını engeller */
+/* İçerik 1 resim */
+.Content-1-img {
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Kart metni içindeki listeler için stil */
-.card-text ul {
-  list-style-type: disc; /* Listelerin simgesini ayarlar */
-  padding-left: 20px; /* Listelerin sol kenar boşluğunu ayarlar */
+/* İçerik başlığı */
+.Content-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
 }
 
-/* Kart metni içindeki listelerin öğeleri için stil */
-.card-text li {
-  margin-bottom: 10px; /* Listelerin alt kenar boşluğunu ayarlar */
+/* İçerik alt başlık */
+.Content-subject {
+  color: #fff;
+  width: 100%;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
 }
 
-/* Mobil uyumlu düzen */
-@media (max-width: 768px) {
-  .my-frame {
-    margin: 10px auto; /* Daha küçük bir boşluk */
-    padding: 10px; /* Daha küçük bir iç boşluk */
+.Content-subject p {
+  color: #fff;
+  text-align: left;
+}
+
+/* Yazılar arası boşluk */
+.Content-subject-1,
+.Content-subject-2,
+.Content-subject-3,
+.Content-subject-4,
+.Content-subject-5 {
+  margin-bottom: 10px;
+}
+
+.Content-video{
+  width: auto;
+  height: auto;
+}
+
+.Content-video .Content-video-title{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.Content-video .video{
+  height: '390';
+  width: '640';
+}
+
+/* Ekran boyutlarına göre stillendirme */
+@media screen and (min-width: 768px) {
+  .Content-subject {
+    width: 50%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
+
+@media screen and (max-width: 767px) {
+  .Content-subject {
+    width: 100%;
+    bottom: 0;
+    top: auto;
+    transform: none;
+  }
+}
+
+/* Mobil uyumlu stiller */
+@media (max-width:  768px) {
+  .Content-video {
+    width:  100%; /* Mobil cihazlarda video bölümünün genişliğini tam genişlikte göster */
+    height: auto; /* Yüksekliği otomatik olarak ayarla */
+  }
+
+  .Content-video .Content-video-title {
+    font-size:  18px; /* Başlık boyutunu küçült */
+  }
+
+  .Content-video .video {
+    height: auto; /* Yüksekliği otomatik olarak ayarla */
+    width:  100%; /* Genişliği tam genişlikte göster */
+  }
+}
+

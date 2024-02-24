@@ -1,42 +1,122 @@
-/* Contact.css */
-.main{
-  max-width: 100%;
-}
-.kart {
-  width: 100%;
-  max-width: 600px; /* Adjust the maximum width as needed */
-  margin: 0 auto; /* Center the card horizontally */
-  padding: 20px;
-  background-color: #ffffff; /* Adjust background color as needed */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+/* Genel stiller */
+* {
+  box-sizing: border-box;
 }
 
-.kart-text {
-  font-size: 16px;
+body {
+  margin:  0;
 }
 
-.kart-img {
-  width: 100%;
-  max-width: 400px; /* Adjust the maximum width of the image */
-  display: block;
-  margin: 0 auto 20px; /* Center the image horizontally and add space at the bottom */
+/* Ana içerik bölümü */
+main {
+  width:  100%;
+  padding:  20px; /* Kenar boşluğu ekleyelim */
 }
 
-@media (min-width: 768px) {
-  .kart {
-    padding: 30px;
-  }
+.ConAll{
+  width:  100%;
+  height:  100%;
 }
 
-@media (min-width: 992px) {
-  .kart {
-    padding: 40px;
-  }
+.Con-Body {
+  display: flex;
+  justify-content: center; /* resmi yatayda ortala */
+  align-items: center; /* resmi dikeyde ortala */
 }
 
-@media (min-width: 1200px) {
-  .kart {
-    padding: 50px;
-  }
+.Con-Body-Text {
+  text-align: center;
+  width:  50%;
+}
+
+.Con-BodyImg {
+  width:  50%;
+}
+
+.Con-Body-img {
+  width:  70%;
+}
+
+/* Resim ve yazı bölümü için genel stiller */
+.Con-Body-Subject {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width:   100%;
+height:   100%;
+}
+
+.Con-Body-SubjectImg {
+position: relative;
+width:   100%;
+opacity:  0.4;
+}
+
+.Con-Body-Subject-h3{
+font-size:  45px;
+}
+
+.Con-Body-Subject-Text {
+top:   50%;
+left:   50%;
+text-align: center;
+width:   100%;
+padding:   20px;
+box-sizing: border-box;
+}
+
+.Con-Body-Subject-Text p {
+font-size:  23px;
+}
+
+.Con-Body-Subject-Text a {
+text-decoration: none;
+color: #000;
+}
+
+.Con-Body-Subject-Text a:hover {
+text-decoration: underline;
+color: #000;
+}
+
+.Con-Head .Con-h1 .Conh1{
+text-align: center;
+}
+
+.Con-Head .Con-Img1{
+display: flex; /* veya display: grid; kullanabilirsiniz */
+justify-content: center; /* resmi yatayda ortala */
+align-items: center; /* resmi dikeyde ortala */
+width:  100%; /* veya belirli bir genişlik */
+height:  80vh; /* veya belirli bir yükseklik */
+}
+
+.Con-Head .Con-Img1 .Con-Img-1{
+max-width:  100%; /* resmin maksimum genişliği %100 olacak, orijinal boyutunu koruyacak */
+max-height:  100%; /* resmin maksimum yüksekliği %100 olacak, orijinal boyutunu koruyacak */
+object-fit: contain; /* resmi konteyner içine sığdırmak için */
+}
+
+/* Mobil uyumlu stiller */
+@media (max-width:  768px) {
+.Con-Body-Text, .Con-BodyImg {
+  width:  100%; /* Mobil cihazlarda metin ve resim bölümlerini yatayda tam genişlikte göster */
+}
+
+.Con-Body-img {
+  width:  100%; /* Mobil cihazlarda resim genişliğini tam genişlikte göster */
+}
+
+.Con-Body-Subject-h3 {
+  font-size:  30px; /* Başlık boyutunu küçült */
+}
+
+.Con-Body-Subject-Text p {
+  font-size:  18px; /* Paragraf boyutunu küçült */
+}
+
+.Con-Head .Con-Img1 {
+  height:  60vh; /* Resim bölümünün yüksekliğini küçült */
+}
 }

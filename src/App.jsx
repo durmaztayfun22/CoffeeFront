@@ -100,6 +100,16 @@ function App() {
               <a href="https://tr-tr.facebook.com/"><image href="https://i.imgur.com/cYQsBtg.png" width="24" height="24" alt="facebook" /></a>
             </svg>
           </li>
+          <li className="ms-3">
+            <svg className="bi" width="24" height="24">
+              <a href="https://www.linkedin.com/in/tayfun-durmaz-405399277/"><image href="../images/linkedin.png" width="24" height="24" alt="facebook" /></a>
+            </svg>
+          </li>
+          <li className="ms-3">
+            <svg className="bi" width="24" height="24">
+              <a href="https://github.com/durmaztayfun22"><image href="../images/github.png" width="24" height="24" alt="facebook" /></a>
+            </svg>
+          </li>
         </ul>
       </footer>
     </div>
@@ -142,5 +152,4 @@ function App() {
     // </LanguageProvider>
   );
 }
-
 export default App;

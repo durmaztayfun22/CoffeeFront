@@ -7,11 +7,12 @@ App.jsx
 
 img link
 About.jsx -> 
-https://vanityfair.blob.core.windows.net/vanityfair19831001thumbnails/Spreads/0x420/42.jpg -- NEWSPAPER
-https://www.impactplus.com/hs-fs/hubfs/blog-image-uploads/best-about-us-pages.jpg?length=780&name=best-about-us-pages.jpg -- About-Us
+    -> VideoPlayer.jsx ->
+    -> https://www.youtube.com/watch?v=vQVTNscQY0c -- Youtube link 
 
 Contact.jsx ->
-https://gcdnb.pbrd.co/images/pFSaAb1xAHL2.jpg?o=1 -- Contact-Us
 
 fourZerofour.jsx ->
 https://th.bing.com/th/id/OIP.FHseQxjyNfV4wHpoPYx0SwHaD2?rs=1&pid=ImgDetMain -- 404 Not Found
+
+
