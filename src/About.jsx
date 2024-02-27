@@ -1,5 +1,6 @@
 import React from "react";
 import VideoPlayer from "./VideoPlayer";
+import './VideoPlayer.css';
 import './About.css';
 
 const About = () => {
@@ -7,7 +8,7 @@ const About = () => {
     <>
       <main>
         <div className="About">
-          <div className="Content-1">
+          <div className="Content-1 grid">
             <div className="Content-1-img">
               <img src="https://gcdnb.pbrd.co/images/JUoQqxnOl2he.jpg?o=1" alt="coffeeee" className="Contentİmg-1" />
             </div>
@@ -34,10 +35,10 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="Content-video">
-            <h2 className="Content-video-title">Coffee Brewing Methods: French Press vs Pour Over vs AeroPress and more!</h2>
+          <div className="Content-video grid">
+            <h2 className="Content-video-title ">Coffee Brewing Methods: French Press vs Pour Over vs AeroPress and more!</h2>
             <div className="video">
-              <VideoPlayer />
+              <VideoPlayer className="VideoPlayer"/>
             </div>
           </div>
         </div>

@@ -1,19 +1,19 @@
 import React from "react";
-import YouTube from "react-youtube";
+import './VideoPlayer.css';
+// import YouTube from "react-youtube";
 
-class VideoPlayer extends React.Component  {
-    render() {
-        const opts = {
-            playerVars: {
-              autoplay: 0,
-            },
-        };
-
-        const videoId = 'vQVTNscQY0c';
-
-        return <YouTube videoId={videoId} opts={opts} />;
-    }    
-
-}
+const VideoPlayer = () => {
+    return (
+      <div className="video-container">
+        <iframe
+          title="YouTube Video"
+          src="https://www.youtube.com/embed/vQVTNscQY0c"
+          frameBorder="0"
+          allowFullScreen
+          className="video-player"
+        ></iframe>
+      </div>
+    );
+  };
 
 export default VideoPlayer;
