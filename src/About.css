@@ -168,13 +168,17 @@ main {
 /*large tablets & laptop styles*/
 @media screen and (min-width: 960px){
 
-  main{
+  #root{
     width: 100%;
   }
 
-  .Contentİmg-1{
+  .Content-1{
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .Content-1 img{
     width: 100%;
-    height: auto;
   }
 
   .Content-subject {
@@ -205,8 +209,13 @@ main {
   }
 
   .Content-video-title{
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
+  }
+
+  .video{
+    width: 70%;
+    margin: 0 auto;
   }
 
 } 
@@ -219,10 +228,12 @@ main {
   }
 
   .Content-1{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
   }
-  
+  .Content-1 img{
+    width: 100%;
+  }
   .Content-subject {
     width: 50%;
     right: 0;
@@ -246,7 +257,7 @@ main {
   .Content-subject-3,
   .Content-subject-4,
   .Content-subject-5 {
-    font-size: 30px;
+    font-size: 25px;
     color: #fff;
   }
 
@@ -256,7 +267,7 @@ main {
   }
 
   .video{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
   }
 
