@@ -26,7 +26,7 @@ const CoffeeDetails = () => {
     }, [slug]); // Dependency array to re-run effect when slug changes
 
     // Rendering NotFoundPage component if coffee data is not found
-    if (!coffee) {
+    if (!setCoffee) {
         return <NotFoundPage />;
     }
 

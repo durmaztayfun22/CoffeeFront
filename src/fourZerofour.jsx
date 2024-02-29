@@ -1,8 +1,20 @@
-import React from "react"; // Importing React library for JSX
+import React, { useEffect } from "react"; // Importing React library for JSX
+import Swal from "sweetalert2";
 
 // Functional component for a Not Found Page
 function NotFoundPage() {
-    return <div><img src="https://th.bing.com/th/id/OIP.FHseQxjyNfV4wHpoPYx0SwHaD2?rs=1&pid=ImgDetMain" alt="notfound" /></div>; // Displaying an image for the not found page
+    useEffect(() => {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="#">Why do I have this issue?</a>'
+        });
+    }, []); // Empty dependency array ensures the effect runs only once after initial render
+
+    return <div>
+        <p>Page Not Found</p>
+    </div>;
 }
 
-export default NotFoundPage // Exporting the NotFoundPage component
+export default NotFoundPage; // Exporting the NotFoundPage component
