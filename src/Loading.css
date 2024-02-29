@@ -41,7 +41,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -20%);
-    animation: pour 10000ms infinite;
+    animation: pour 5000ms infinite;
     transform-origin: 50% 20%;
   }
   .press:after {
@@ -71,7 +71,7 @@
     top: 4%;
     border-radius: 0 100% 100% 100%;
     transform: rotate(-45deg);
-    animation: drop 10000ms infinite;
+    animation: drop 5000ms infinite;
     transform-origin: left top;
     z-index: 1;
   }
@@ -148,7 +148,7 @@
     bottom: 15%;
     left: 5%;
     transform: translateY(-60%);
-    animation: plunge 10000ms infinite;
+    animation: plunge 5000ms infinite;
   }
   
   .shaft {
@@ -204,7 +204,7 @@
     transform: scaleY(0);
     border-radius: 0 0 4% 4%;
     transform-origin: bottom center;
-    animation: fill-grounds 10000ms infinite;
+    animation: fill-grounds 5000ms infinite;
     animation-fill-mode: forwards;
   }
   
@@ -217,7 +217,7 @@
     background: rgba(94, 230, 235, 0.15);
     transform: scaleY(0);
     transform-origin: bottom center;
-    animation: fill-water 10000ms infinite;
+    animation: fill-water 5000ms infinite;
     animation-fill-mode: forwards;
     z-index: 2;
   }
