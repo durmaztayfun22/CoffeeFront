@@ -17,7 +17,7 @@ function App() {
     setIsLoading(true); // Veri yüklenirken true olarak ayarla
     const timer = setTimeout(() => {
       setIsLoading(false); // Veri yüklenmesi tamamlandığında false olarak ayarla
-    }, 3000); // 10 saniye sonra
+    }, 5000); // 3 saniye sonra
 
     return () => clearTimeout(timer); // Temizleme işlemi
   }, []);
