@@ -68,7 +68,7 @@ const Contact = () => {
 export default Contact;
 
 //Kayıt ol veya Contact Us 
-//name, surname, phone, mail, description    AIzaSyCn7Zw5u6aqg41Cr1rkU0z6WR8TCyfiXjQ
+//name, surname, phone, mail, description    
 
 // Kahve Formu
 // Kahve içeceğiniz sıklık nedir?
