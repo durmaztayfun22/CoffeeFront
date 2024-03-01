@@ -1,7 +1,11 @@
 import React from "react";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
+<<<<<<< HEAD
 // import config from '../config.js';
 import config from '../config.js'; // config.js dosyasını import edin
+=======
+import config from '../Config.js';
+>>>>>>> 1b6046342d37c4feda4f982ff6751a8aa278e532
 import './Contact.css'
 
 const Contact = () => {
