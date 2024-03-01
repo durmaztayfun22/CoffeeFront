@@ -37,66 +37,7 @@ main {
   width:  70%;
 }
 
-/* Resim ve yazı bölümü için genel stiller */
-.Con-Body-Subject {
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width:   100%;
-height:   100%;
-}
 
-.Con-Body-SubjectImg {
-position: relative;
-width:   100%;
-opacity:  0.4;
-}
-
-.Con-Body-Subject-h3{
-font-size:  45px;
-}
-
-.Con-Body-Subject-Text {
-top:   50%;
-left:   50%;
-text-align: center;
-width:   100%;
-padding:   20px;
-box-sizing: border-box;
-}
-
-.Con-Body-Subject-Text p {
-font-size:  23px;
-}
-
-.Con-Body-Subject-Text a {
-text-decoration: none;
-color: #000;
-}
-
-.Con-Body-Subject-Text a:hover {
-text-decoration: underline;
-color: #000;
-}
-
-.Con-Head .Con-h1 .Conh1{
-text-align: center;
-}
-
-.Con-Head .Con-Img1{
-display: flex; /* veya display: grid; kullanabilirsiniz */
-justify-content: center; /* resmi yatayda ortala */
-align-items: center; /* resmi dikeyde ortala */
-width:  100%; /* veya belirli bir genişlik */
-height:  80vh; /* veya belirli bir yükseklik */
-}
-
-.Con-Head .Con-Img1 .Con-Img-1{
-max-width:  100%; /* resmin maksimum genişliği %100 olacak, orijinal boyutunu koruyacak */
-max-height:  100%; /* resmin maksimum yüksekliği %100 olacak, orijinal boyutunu koruyacak */
-object-fit: contain; /* resmi konteyner içine sığdırmak için */
-}
 
 /* Mobil uyumlu stiller */
 @media (max-width:  768px) {
@@ -108,15 +49,4 @@ object-fit: contain; /* resmi konteyner içine sığdırmak için */
   width:  100%; /* Mobil cihazlarda resim genişliğini tam genişlikte göster */
 }
 
-.Con-Body-Subject-h3 {
-  font-size:  30px; /* Başlık boyutunu küçült */
-}
-
-.Con-Body-Subject-Text p {
-  font-size:  18px; /* Paragraf boyutunu küçült */
-}
-
-.Con-Head .Con-Img1 {
-  height:  60vh; /* Resim bölümünün yüksekliğini küçült */
-}
 }

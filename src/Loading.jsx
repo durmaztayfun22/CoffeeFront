@@ -5,23 +5,23 @@ import './Loading.css'
 function LoadingPage() {
 
     return (
-        <div class="wrapper">
-            <div class="press">
-                <div class="holder"></div>
-                <div class="lid"></div>
-                <div class="carafe">
-                <div class="drop"></div>
-                <div class="spout"></div>
-                <div class="contents">
-                    <div class="grounds"></div>
-                    <div class="water"></div>
+        <div className="wrapper">
+            <div className="press">
+                <div className="holder"></div>
+                <div className="lid"></div>
+                <div className="carafe">
+                <div className="drop"></div>
+                <div className="spout"></div>
+                <div className="contents">
+                    <div className="grounds"></div>
+                    <div className="water"></div>
                 </div>
                 </div>
-                <div class="plunger">
-                <div class="shaft">
-                    <div class="knob"></div>
+                <div className="plunger">
+                <div className="shaft">
+                    <div className="knob"></div>
                 </div>
-                <div class="filter"></div>
+                <div className="filter"></div>
                 </div>
             </div>
         </div>
