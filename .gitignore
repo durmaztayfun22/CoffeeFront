@@ -1,5 +1,5 @@
 .env
-config.js
+.env.local
 learned-nature-411720-199b87cbcc94.json
 # Logs
 logs

@@ -1,4 +1,4 @@
 {
-    "includeFiles": ["config.js"]
+    "includeFiles": [".env"]
 }
    

@@ -1,10 +1,10 @@
 import React from "react";
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import config from '../config.js';
 import './Contact.css'
 
 const Contact = () => {
-  const { GOOGLE_MAPS_API_KEY } = config;
+  const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY;
+
   const mapStyles = {
     height: "100vh",
     width: "100%"
