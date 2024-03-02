@@ -1,19 +1,19 @@
 import React from "react";
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+// import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import './Contact.css'
 
 const Contact = () => {
-  const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
+  // const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
   // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY; // local'de bu anahtar olacak
-  const mapStyles = {
-    height: "55vh",
-    width: "100%"
-  };
+  // const mapStyles = {
+  //   height: "55vh",
+  //   width: "100%"
+  // };
 
-  const defaultCenter = {
-    lat: 40.712776,
-    lng: -74.005974
-  };
+  // const defaultCenter = {
+  //   lat: 40.712776,
+  //   lng: -74.005974
+  // };
 
   return ( 
     <main>
@@ -35,33 +35,36 @@ const Contact = () => {
         </div>
         <div className="Con-Body-ContactUS">
           <div className="Con-Body-ContactUS-Form">
+            <div className="coffeeSticker-1">
+              <img src="../images/coffee-bean.png" alt="coffeeSticker-1" />
+            </div>
             <div className="Con-Body-ContactUS-Form-title">
               <h3>Contact US</h3>
             </div>
             <ul>
               <li>
-                <input type="text" name="name" id="name" placeholder="NAME" />
+                <input className="name" type="text" name="name" id="name" placeholder="NAME" />
+                <input className="surname" type="text" name="surname" id="surname" placeholder="SURNAME" />
               </li>
               <li>
-                <input type="text" name="surname" id="surname" placeholder="SURNAME" />
+                <input className="phone" type="text" name="phone" id="phone" placeholder="PHONE"/>
+                <input className="mail" type="text" name="mail" id="mail" placeholder="MAİL"/>
               </li>
               <li>
-                <input type="text" name="phone" id="phone" placeholder="PHONE"/>
-              </li>
-              <li>
-                <input type="text" name="mail" id="mail" placeholder="MAİL"/>
-              </li>
-              <li>
-                <input type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
+                <input className="description" type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
               </li>
             </ul>
             <button className="Con-Body-ContactUS-Button">SEND MESSAGE</button>
+            <div className="coffeeSticker-2">
+              <img src="../images/coffee.png" alt="coffeeSticker-2" />
+            </div>
           </div>
-          <div className="Con-Body-ContactUS-map">
+          
+          {/* <div className="Con-Body-ContactUS-map">
             <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
               <GoogleMap mapContainerStyle={mapStyles} zoom={13}  center={defaultCenter}/>
             </LoadScript>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
@@ -70,8 +73,6 @@ const Contact = () => {
 
 export default Contact;
 
-//Kayıt ol veya Contact Us 
-//name, surname, phone, mail, description    
 
 // Kahve Formu
 // Kahve içeceğiniz sıklık nedir?
