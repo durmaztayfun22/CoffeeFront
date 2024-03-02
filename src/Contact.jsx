@@ -36,7 +36,7 @@ const Contact = () => {
         <div className="Con-Body-ContactUS">
           <div className="Con-Body-ContactUS-Form">
             <div className="coffeeSticker-1">
-              <img src="../images/coffee-bean.png" alt="coffeeSticker-1" />
+              <img src="https://gcdnb.pbrd.co/images/9O6dRPgRg0IZ.png?o=1" alt="coffeeSticker-1" />
             </div>
             <div className="Con-Body-ContactUS-Form-title">
               <h3>Contact US</h3>
@@ -56,7 +56,7 @@ const Contact = () => {
             </ul>
             <button className="Con-Body-ContactUS-Button">SEND MESSAGE</button>
             <div className="coffeeSticker-2">
-              <img src="../images/coffee.png" alt="coffeeSticker-2" />
+              <img src="https://gcdnb.pbrd.co/images/6yxw8nS2525P.png?o=1" alt="coffeeSticker-2" />
             </div>
           </div>
           
