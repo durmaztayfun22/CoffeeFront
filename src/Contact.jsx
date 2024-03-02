@@ -3,10 +3,10 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import './Contact.css'
 
 const Contact = () => {
-  const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-
+  const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
+  // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY; // local'de bu anahtar olacak
   const mapStyles = {
-    height: "100vh",
+    height: "55vh",
     width: "100%"
   };
 
@@ -35,6 +35,9 @@ const Contact = () => {
         </div>
         <div className="Con-Body-ContactUS">
           <div className="Con-Body-ContactUS-Form">
+            <div className="Con-Body-ContactUS-Form-title">
+              <h3>Contact US</h3>
+            </div>
             <ul>
               <li>
                 <input type="text" name="name" id="name" placeholder="NAME" />
@@ -52,7 +55,7 @@ const Contact = () => {
                 <input type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
               </li>
             </ul>
-            <button className="Con-Body-ContactUS-Button">GÖNDER</button>
+            <button className="Con-Body-ContactUS-Button">SEND MESSAGE</button>
           </div>
           <div className="Con-Body-ContactUS-map">
             <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>

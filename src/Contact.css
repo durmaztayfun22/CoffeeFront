@@ -37,7 +37,84 @@ main {
   width:  70%;
 }
 
+.Con-Body-ContactUS {
+  display: flex;
+  margin-top: 5%;
+  margin-bottom: 50%;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
 
+.Con-Body-ContactUS-Form {
+  position: relative;
+  float: left;
+  width: 60%;
+  overflow: hidden;
+  background-color: #6391ac;
+  box-sizing: border-box;
+}
+.Con-Body-ContactUS-Form-title h3 {
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.Con-Body-ContactUS-Form ul {
+  width: 100%;
+  list-style: none;
+}
+
+.Con-Body-ContactUS-Form ul li {
+  display: flex;
+  justify-content: center; /* Öğeleri yatayda ortala */
+  align-items: center; /* Öğeleri dikeyde ortala */
+  padding: 20px; /* İçeriği kenarlardan ayır */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Alt kısmına boşluk bırak */
+}
+
+.Con-Body-ContactUS-Form ul li input{
+  width: calc(100% - 10px); /* %100 genişlik, kenar boşluğunu çıkar */
+  background-color: transparent;
+  color: #fff;
+  border: none; /* Kenar çizgisini kaldır */
+  border-bottom: 1px solid #fff; /* Alt kısmına sadece çizgi ekle */
+  padding: 5px; /* İçeriği kenarlardan ayır */
+  outline: none; /* Odaklanıldığında kenarlığı kaldır */
+}
+
+/* İnput odaklandığında alt çizgi rengi değiştir */
+.Con-Body-ContactUS-Form ul li input:focus {
+  border-bottom: 1px solid #00bcd4; /* Örnek olarak mavi renk */
+}
+
+/* İnputa mouse hover olduğunda alt çizgi rengi değiştir */
+.Con-Body-ContactUS-Form ul li input:hover {
+  border-bottom: 1px solid #00bcd4; /* Örnek olarak mavi renk */
+}
+
+.Con-Body-ContactUS-Form ul li input::placeholder {
+  color: #fff; /* Siyah renk */
+}
+
+.Con-Body-ContactUS-Button{
+  background-color: #fff;
+  color: black;
+}
+
+.Con-Body-ContactUS-map {
+  position: relative;
+  float: right;
+  width: 40%;
+  overflow: hidden;
+}
 
 /* Mobil uyumlu stiller */
 @media (max-width:  768px) {
