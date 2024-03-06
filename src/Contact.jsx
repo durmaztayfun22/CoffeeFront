@@ -2,8 +2,9 @@ import React, { useState } from "react";
 // import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import './Contact.css'
 import axios from "axios";
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const api = 'https://strapidevelopment.onrender.com/api/forms';
 
 
@@ -32,7 +33,6 @@ const Contact = () => {
     console.log(formData);
 
     try {
-  
       const response = await axios.post(api, formData, { 
         headers: {
           'Content-Type': 'application/json',
@@ -40,8 +40,9 @@ const Contact = () => {
       });
       console.log(response)
       console.log('veriler gönderildi');
-  
-      if (response.status === 201) {
+
+      if(response.status === 200){
+        toast.success('Form submitted successfully!');
         setName('');
         setSurname('');
         setPhone('');
@@ -49,6 +50,7 @@ const Contact = () => {
         setDescription('');
       }
     } catch (error) {
+      toast.error('Your form could not be sent.');
       console.log(error);
     }
   }
@@ -81,15 +83,15 @@ const Contact = () => {
             </div>
             <ul>
               <li>
-                <input className="name" value={name} onChange={e => setName(e.target.value)} type="text" name="name" id="name" placeholder="NAME" />
-                <input className="surname" value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname" id="surname" placeholder="SURNAME" />
+                <input className="name" value={name} onChange={e => setName(e.target.value)} type="text" name="name" id="name" placeholder="NAME" required/>
+                <input className="surname" value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname" id="surname" placeholder="SURNAME" required />
               </li>
               <li>
-                <input className="phone" value={phone} onChange={e => setPhone(e.target.value)} type="text" name="phone" id="phone" placeholder="PHONE"/>
-                <input className="mail" value={mail} onChange={e => setMail(e.target.value)} type="text" name="mail" id="mail" placeholder="MAİL"/>
+                <input className="phone" value={phone} onChange={e => setPhone(e.target.value)} type="text" name="phone" id="phone" placeholder="PHONE" required />
+                <input className="mail" value={mail} onChange={e => setMail(e.target.value)} type="text" name="mail" id="mail" placeholder="MAİL" required />
               </li>
               <li>
-                <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
+                <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder="DESCRİPTİON" required />
               </li>
             </ul>
             <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>SEND MESSAGE</button>
@@ -99,6 +101,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </main>
   );
 };
