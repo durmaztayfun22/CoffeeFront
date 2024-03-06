@@ -1,20 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 // import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import './Contact.css'
+import axios from "axios";
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+const api = 'https://strapidevelopment.onrender.com/api/forms';
+
 
 const Contact = () => {
-  // const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
-  // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY; // local'de bu anahtar olacak
-  // const mapStyles = {
-  //   height: "55vh",
-  //   width: "100%"
-  // };
 
-  // const defaultCenter = {
-  //   lat: 40.712776,
-  //   lng: -74.005974
-  // };
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [phone, setPhone] = useState('');
+  const [mail, setMail] = useState('');
+  const [description, setDescription] = useState('');
 
+  const ContactMessage = async(e) => {
+    e.preventDefault();
+
+    const formData = {
+      data: {
+          name: name,
+          surname: surname,
+          phone: phone,
+          mail: mail,
+          description: description
+      }
+      
+    };
+
+    console.log(formData);
+
+    try {
+  
+      const response = await axios.post(api, formData, { 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response)
+      console.log('veriler gönderildi');
+  
+      if (response.status === 201) {
+        setName('');
+        setSurname('');
+        setPhone('');
+        setMail('');
+        setDescription('');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
   return ( 
     <main>
       <div className="ConAll">
@@ -43,28 +81,22 @@ const Contact = () => {
             </div>
             <ul>
               <li>
-                <input className="name" type="text" name="name" id="name" placeholder="NAME" />
-                <input className="surname" type="text" name="surname" id="surname" placeholder="SURNAME" />
+                <input className="name" value={name} onChange={e => setName(e.target.value)} type="text" name="name" id="name" placeholder="NAME" />
+                <input className="surname" value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname" id="surname" placeholder="SURNAME" />
               </li>
               <li>
-                <input className="phone" type="text" name="phone" id="phone" placeholder="PHONE"/>
-                <input className="mail" type="text" name="mail" id="mail" placeholder="MAİL"/>
+                <input className="phone" value={phone} onChange={e => setPhone(e.target.value)} type="text" name="phone" id="phone" placeholder="PHONE"/>
+                <input className="mail" value={mail} onChange={e => setMail(e.target.value)} type="text" name="mail" id="mail" placeholder="MAİL"/>
               </li>
               <li>
-                <input className="description" type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
+                <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder="DESCRİPTİON"/>
               </li>
             </ul>
-            <button className="Con-Body-ContactUS-Button">SEND MESSAGE</button>
+            <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>SEND MESSAGE</button>
             <div className="coffeeSticker-2">
               <img src="https://gcdnb.pbrd.co/images/6yxw8nS2525P.png?o=1" alt="coffeeSticker-2" />
             </div>
           </div>
-          
-          {/* <div className="Con-Body-ContactUS-map">
-            <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
-              <GoogleMap mapContainerStyle={mapStyles} zoom={13}  center={defaultCenter}/>
-            </LoadScript>
-          </div> */}
         </div>
       </div>
     </main>
@@ -74,6 +106,24 @@ const Contact = () => {
 export default Contact;
 
 
+//-------------------------------------------------------------------------------------------------------------------------------
+// const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
+  // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY; // local'de bu anahtar olacak
+  // const mapStyles = {
+  //   height: "55vh",
+  //   width: "100%"
+  // };
+
+  // const defaultCenter = {
+  //   lat: 40.712776,
+  //   lng: -74.005974
+  // };
+  // <div className="Con-Body-ContactUS-map">
+  //           <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
+  //             <GoogleMap mapContainerStyle={mapStyles} zoom={13}  center={defaultCenter}/>
+  //           </LoadScript>
+  //         </div>
+//-------------------------------------------------------------------------------------------------------------------------------
 // Kahve Formu
 // Kahve içeceğiniz sıklık nedir?
 // Tat tercihiniz nasıldır? (Tatlı, ekşi, acı, vb.)
