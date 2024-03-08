@@ -10,6 +10,7 @@ const Header = () => {
                 <header className="header">
                 <div className="header-content">
                     <Link to="/" className="title">
+                        <img src="https://i.imgur.com/qscsMyf.png" alt="coffeeCup" />
                         <span className="fs-4">Coffee</span>
                     </Link>
 

@@ -1,6 +1,8 @@
 .env
 .env.local
 learned-nature-411720-199b87cbcc94.json
+link.txt
+
 # Logs
 logs
 *.log

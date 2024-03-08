@@ -79,6 +79,27 @@
     color: transparent;
   }
   
+
+  .sıralama ul li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 5%;
+    border-bottom: 2px solid #000;
+    border-radius: 10px; /* Kenarları yuvarlamak için */
+    padding: 10px; /* Opsiyonel: Boşluk eklemek için */
+    transition: all 0.3s ease;
+  }
+
+  .sıralama ul li:hover {
+    color: #fff; /* Yazının rengini beyaz yapıyoruz */
+    background-color: #000; /* Arkaplan rengini siyah yapıyoruz */
+    border-bottom: 2px solid #fff;
+  }
+  
+  .sıralama ul li:last-child {
+    margin-right: 0; /* Son elemanın sağ boşluğunu kaldırmak için */
+  }
+
   .card-container {
     display: flex;
     flex-wrap: wrap;

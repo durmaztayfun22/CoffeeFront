@@ -40,6 +40,14 @@
   .title {
     color: black;
     width: 80px;
+    display: flex;
+    align-items: center;
+}
+
+  .title img {
+      width: 40px; /* Logo boyutunu ayarlayın */
+      height: auto; /* Yüksekliği otomatik olarak ayarlar */
+      margin-right: 10px; /* Logo ile metin arasında boşluk bırakır */
   }
   
   .ul {
@@ -69,9 +77,9 @@
   }
   
   .headertitlebig h1 {
-    font-size: 10rem;
+    font-size: 6rem;
     color: #000;
-    font-weight: 600;
+    font-weight: 400;
   }
   
   .headertitlebig h1:hover {
@@ -138,7 +146,7 @@
     }
   
     .headertitlebig h1 {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   
     .card-container {
@@ -173,7 +181,7 @@
     }
   
     .headertitlebig h1 {
-      font-size: 6rem;
+      font-size: 4rem;
     }
   
     .card-container {

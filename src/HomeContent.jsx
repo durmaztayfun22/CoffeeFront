@@ -12,6 +12,7 @@ const HomeContent = () => {
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [filteredData, setFilteredData] = useState([]);
 
     const fetchData = async () => {
       try {
@@ -30,6 +31,14 @@ const HomeContent = () => {
     if(!data){
       return <NotFoundPage />;
     }
+
+    const handleCategoryClick = (category) => {
+
+      // Seçilen kategoriye göre filtreleme yap
+      const filteredItems = data.data.filter(item => item.attributes.rich[0]?.children[0]?.text.includes(category));
+      // Filtrelenmiş verileri state'e ata
+      setFilteredData(filteredItems);
+    };
   
     const handleImageClick = (src, alt) => {
       setSelectedImage({ src, alt });
@@ -41,33 +50,46 @@ const HomeContent = () => {
     }
   
     return (
-      <div className="card-container">
-        {data?.data?.length > 0 && data?.data?.map((item) => {
-          return (
-            <div key={item?.id} className="card">
-              <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
-                <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
-              </div>
-              <Link to={`/coffeeDetails/${item?.attributes?.slug}`}>
-                <div className="card-body">
-                 <div className='item-container' id='container'>
-                    <div className='item-details'>
-                      <h2 className="card-title">{item?.attributes?.name}</h2>
-                      <p className='card-text'>Description: {item?.attributes?.description}</p>
-                      <p className='card-text'>Origin: {item?.attributes?.origin}</p>
-                      <span className='card-text price'>Price: {item?.attributes?.price}</span>
-                    </div>
-                 </div>
+      <>
+        <div className="sıralama">
+          <ul>
+            <li onClick={() => handleCategoryClick("Strong Coffees")}>Strong Coffees</li>
+            <li onClick={() => handleCategoryClick("Soft Coffees")}>Soft Coffees</li>
+            <li onClick={() => handleCategoryClick("Milk Coffees")}>Milk Coffees</li>
+            <li onClick={() => handleCategoryClick("Coffees Without Milk")}>Coffees Without Milk</li>
+            <li onClick={() => handleCategoryClick("Hot Coffees")}>Hot Coffees</li>
+            <li onClick={() => handleCategoryClick("Cold Coffees")}>Cold Coffees</li>
+          </ul>
+        </div>
+        <div className="card-container">
+          {(filteredData?.length > 0 ? filteredData : data?.data)?.map((item) => {
+            return (
+              <div key={item?.id} className="card">
+                <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
+                  <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
                 </div>
-              </Link>
-              {showModal && selectedImage && (
-                <Modal src={selectedImage.src} alt={selectedImage.alt} onClose={handleCloseModel}/>
-              )}
-            </div>
-          );
-        })}
-      </div>
+                <Link to={`/coffeeDetails/${item?.attributes?.slug}`}>
+                  <div className="card-body">
+                    <div className='item-container' id='container'>
+                      <div className='item-details'>
+                        <h2 className="card-title">{item?.attributes?.name}</h2>
+                        <p className='card-text'>Description: {item?.attributes?.description}</p>
+                        <p className='card-text'>Origin: {item?.attributes?.origin}</p>
+                        <span className='card-text price'>Price: {item?.attributes?.price}💲</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+                {showModal && selectedImage && (
+                  <Modal src={selectedImage.src} alt={selectedImage.alt} onClose={handleCloseModel}/>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </>
     );
+    
 }
 
 export default HomeContent;
