@@ -1,19 +1,18 @@
 import React from "react";
-import './VideoPlayer.css';
-// import YouTube from "react-youtube";
+import './VideoPlayer.css'; // VideoPlayer bileşeninin stillerini içe aktarır
 
 const VideoPlayer = () => {
     return (
-      <div className="video-container">
+      <div className="video-container"> {/* Video'nun içerisinde bulunduğu konteyner */}
         <iframe
-          title="YouTube Video"
-          src="https://www.youtube.com/embed/vQVTNscQY0c"
-          frameBorder="0"
-          allowFullScreen
-          className="video-player"
+          title="YouTube Video" // iframe'in başlığı
+          src="https://www.youtube.com/embed/vQVTNscQY0c" // YouTube video URL'si
+          frameBorder="0" // iframe sınırlarını kaldırır
+          allowFullScreen // Tam ekran izin verir
+          className="video-player" // iframe'e uygulanacak CSS sınıfı
         ></iframe>
       </div>
     );
-  };
+};
 
-export default VideoPlayer;
+export default VideoPlayer; // VideoPlayer bileşenini dışa aktarır
