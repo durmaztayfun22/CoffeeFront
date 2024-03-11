@@ -95,6 +95,18 @@
     background-color: #000; /* Arkaplan rengini siyah yapıyoruz */
     border-bottom: 2px solid #fff;
   }
+
+  .sıralama ul li.selected {
+    color: #fff;
+    background-color: #000;
+    border-bottom: 2px solid #fff;
+  }
+  
+  .sıralama ul li img{
+    height: 10px;
+    width: 10px;
+    background-color: #fff;
+  }
   
   .sıralama ul li:last-child {
     margin-right: 0; /* Son elemanın sağ boşluğunu kaldırmak için */

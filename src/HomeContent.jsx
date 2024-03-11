@@ -13,6 +13,7 @@ const HomeContent = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState(null);
 
     const fetchData = async () => {
       try {
@@ -33,10 +34,8 @@ const HomeContent = () => {
     }
 
     const handleCategoryClick = (category) => {
-
-      // Seçilen kategoriye göre filtreleme yap
+      setSelectedCategory(category);
       const filteredItems = data.data.filter(item => item.attributes.rich[0]?.children[0]?.text.includes(category));
-      // Filtrelenmiş verileri state'e ata
       setFilteredData(filteredItems);
     };
   
@@ -53,12 +52,12 @@ const HomeContent = () => {
       <>
         <div className="sıralama">
           <ul>
-            <li onClick={() => handleCategoryClick("Strong Coffees")}>Strong Coffees</li>
-            <li onClick={() => handleCategoryClick("Soft Coffees")}>Soft Coffees</li>
-            <li onClick={() => handleCategoryClick("Milk Coffees")}>Milk Coffees</li>
-            <li onClick={() => handleCategoryClick("Coffees Without Milk")}>Coffees Without Milk</li>
-            <li onClick={() => handleCategoryClick("Hot Coffees")}>Hot Coffees</li>
-            <li onClick={() => handleCategoryClick("Cold Coffees")}>Cold Coffees</li>
+            <li className={selectedCategory === "Strong Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Strong Coffees")}>Strong Coffees</li>
+            <li className={selectedCategory === "Soft Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Soft Coffees")}>Soft Coffees</li>
+            <li className={selectedCategory === "Milk Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Milk Coffees")}>Milk Coffees</li>
+            <li className={selectedCategory === "Coffees Without Milk" ? "selected" : ""} onClick={() => handleCategoryClick("Coffees Without Milk")}>Coffees Without Milk</li>
+            <li className={selectedCategory === "Hot Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Hot Coffees")}>Hot Coffees</li>
+            <li className={selectedCategory === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>Cold Coffees</li>
           </ul>
         </div>
         <div className="card-container">
