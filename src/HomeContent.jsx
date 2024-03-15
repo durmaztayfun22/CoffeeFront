@@ -6,9 +6,14 @@ import NotFoundPage from './fourZerofour';
 
 import { Link } from 'react-router-dom';
 
-const api = 'https://strapidevelopment.onrender.com/api/coffees';
+//   en: 'https://strapidevelopment.onrender.com/api/coffees?locale=en',
+//   tr: 'https://strapidevelopment.onrender.com/api/coffees?locale=tr'
 
-const HomeContent = () => {
+
+const HomeContent = ({ locale }) => {
+
+    // const api = 'https://strapidevelopment.onrender.com/api/coffees';
+    const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -17,7 +22,7 @@ const HomeContent = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${api}/`);
+        const response = await axios.get(api);
         const veri = response.data;
         setData(veri);
       } catch (error) {
@@ -27,7 +32,7 @@ const HomeContent = () => {
   
     useEffect(() => {
       fetchData();
-    }, []);
+    }, [locale]);
 
     if(!data){
       return <NotFoundPage />;
@@ -52,12 +57,12 @@ const HomeContent = () => {
       <>
         <div className="sıralama">
           <ul>
-            <li className={selectedCategory === "Strong Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Strong Coffees")}>Strong Coffees</li>
-            <li className={selectedCategory === "Soft Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Soft Coffees")}>Soft Coffees</li>
-            <li className={selectedCategory === "Milk Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Milk Coffees")}>Milk Coffees</li>
-            <li className={selectedCategory === "Coffees Without Milk" ? "selected" : ""} onClick={() => handleCategoryClick("Coffees Without Milk")}>Coffees Without Milk</li>
-            <li className={selectedCategory === "Hot Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Hot Coffees")}>Hot Coffees</li>
-            <li className={selectedCategory === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>Cold Coffees</li>
+            <li className={selectedCategory === "Strong Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Strong Coffees")}>{locale === 'tr' ? 'Sert Kahveler' : 'Strong Coffees'}</li>
+            <li className={selectedCategory === "Soft Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Soft Coffees")}>{locale === 'tr' ? 'Yumuşak Kahveler' : 'Soft Coffees'}</li>
+            <li className={selectedCategory === "Milk Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Milk Coffees")}>{locale === 'tr' ? 'Sütlü Kahveler' : 'Milk Coffees'}</li>
+            <li className={selectedCategory === "Coffees Without Milk" ? "selected" : ""} onClick={() => handleCategoryClick("Coffees Without Milk")}>{locale === 'tr' ? 'Sütsüz Kahveler' : 'Coffees Without Milk'}</li>
+            <li className={selectedCategory === "Hot Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Hot Coffees")}>{locale === 'tr' ? 'Sıcak Kahveler' : 'Hot Coffees'}</li>
+            <li className={selectedCategory === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>{locale === 'tr' ? 'Soğuk Kahveler' : 'Cold Coffees'}</li>
           </ul>
         </div>
         <div className="card-container">

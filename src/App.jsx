@@ -12,6 +12,7 @@ import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true); // Yeni durum değişkeni
+  const [locale, setLocale] = useState("en");
 
   useEffect(() => {
     setIsLoading(true); // Veri yüklenirken true olarak ayarla
@@ -27,17 +28,17 @@ function App() {
   }
 
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomeContent />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/coffeeDetails/:slug" element={<CoffeeDetails />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <Header locale={locale} setLocale={setLocale} />
+        <Routes >
+          <Route path="/" element={<HomeContent locale={locale}/>} />
+          <Route path="/about" element={<About locale={locale}/>} />
+          <Route path="/contact" element={<Contact locale={locale}/>} />
+          <Route path="/coffeeDetails/:slug" element={<CoffeeDetails locale={locale}/>} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer locale={locale} />
+      </Router>
   );
 }
 

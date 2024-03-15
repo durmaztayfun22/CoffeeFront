@@ -2,7 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitterSquare, faInstagramSquare, faFacebookSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
-const Footer = () => {
+
+const Footer = ({ locale }) => {
     return (
         <div className="container">
             {/* Footer section */}
@@ -13,7 +14,7 @@ const Footer = () => {
                         <svg className="bi" width="30" height="24"><use xlinkHref="#bootstrap" /></svg>
                     </a>
                     {/* Company information */}
-                    <span className="mb-3 mb-md-0 text-body-secondary"> 2024 Company, Copyright belongs to TAYFUN DURMAZ. </span>
+                    <span className="mb-3 mb-md-0 text-body-secondary">{locale === 'en' ? '2024 Company, Copyright belongs to TAYFUN DURMAZ.' : '2024 Şirketi, Telif Hakkı TAYFUN DURMAZ aittir.'}  </span>
                 </div>
 
                 {/* Social media links */}

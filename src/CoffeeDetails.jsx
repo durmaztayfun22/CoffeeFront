@@ -4,17 +4,17 @@ import axios from 'axios'; // Importing axios for HTTP requests
 import NotFoundPage from './fourZerofour'; // Importing NotFoundPage component
 import './CoffeeDetails.css' // Importing CSS file for styling
 
-const api = 'https://strapidevelopment.onrender.com/api/coffees'; // API endpoint for fetching coffee data
+// const api = 'https://strapidevelopment.onrender.com/api/coffees'; // API endpoint for fetching coffee data
 
-const CoffeeDetails = () => {
+const CoffeeDetails = ({ locale }) => {
     const { slug } = useParams(); // Extracting slug from URL parameters using useParams hook
     const [coffee, setCoffee] = useState(null); // State for storing coffee data
-
+    const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
     useEffect(() => {
         // Function to fetch coffee data
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${api}?slug=${slug}`); // Fetching coffee data with slug
+              const response = await axios.get(`${api}&slug=${slug}`);// Fetching coffee data with slug
                 const coffeeData = response.data.data.find(item => item.attributes.slug === slug); // Finding coffee data with matching slug
                 setCoffee(coffeeData); // Setting coffee data to state
             } catch (error) {
@@ -23,7 +23,7 @@ const CoffeeDetails = () => {
         };
 
         fetchData(); // Calling fetchData function
-    }, [slug]); // Dependency array to re-run effect when slug changes
+    }, [api, slug]); // Dependency array to re-run effect when slug changes
 
     // Rendering NotFoundPage component if coffee data is not found
     if (!setCoffee) {

@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const api = 'https://strapidevelopment.onrender.com/api/forms';
 
 
-const Contact = () => {
+const Contact = ({ locale }) => {
 
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -61,12 +61,12 @@ const Contact = () => {
         <div className="Con-Body">
           <div className="Con-Body-Text">
             <div className="Con-TextH3">
-              <h3 className="Con-Text-h3">Contact Us For The Best Coffee Preferences</h3>
+              <h3 className="Con-Text-h3">{locale === 'tr' ? 'En İyi Kahve Tercihleri İçin Bize Ulaşın' : 'Contact Us For The Best Coffee Preferences'}</h3>
             </div>
             <div className="Con-TextP">
-              <p className="Con-Text-p">Get in touch, we’d love to hear from you.</p>
-              <p className="Con-Text-p">Let's choose the best coffee to suit your taste.</p>
-              <p className="Con-Text-p">The best coffees are always the ones with the best flavour.</p>
+              <p className="Con-Text-p">{locale === 'tr' ? 'İletişime geçin, sizden haber almak isteriz.' : 'Get in touch, we’d love to hear from you.'}</p>
+              <p className="Con-Text-p">{locale === 'tr' ? 'Damak tadınıza en uygun kahveyi seçelim.' : 'Lets choose the best coffee to suit your taste.'}</p>
+              <p className="Con-Text-p">{locale === 'tr' ? 'En iyi kahveler her zaman en iyi aromaya sahip olanlardır.' : 'The best coffees are always the ones with the best flavour.'}</p>
             </div>
           </div>
           <div className="Con-BodyImg">
@@ -79,7 +79,7 @@ const Contact = () => {
               <img src="https://gcdnb.pbrd.co/images/9O6dRPgRg0IZ.png?o=1" alt="coffeeSticker-1" />
             </div>
             <div className="Con-Body-ContactUS-Form-title">
-              <h3>Contact US</h3>
+              <h3>{locale === 'tr' ? 'Bizimle İletişime Geçin' : 'Contact US'}</h3>
             </div>
             <ul>
               <li>
@@ -94,7 +94,7 @@ const Contact = () => {
                 <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder="DESCRİPTİON" required />
               </li>
             </ul>
-            <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>SEND MESSAGE</button>
+            <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>{locale === 'tr' ? 'Mesajı Gönder' : 'SEND MESSAGE'}</button>
             <div className="coffeeSticker-2">
               <img src="https://gcdnb.pbrd.co/images/6yxw8nS2525P.png?o=1" alt="coffeeSticker-2" />
             </div>

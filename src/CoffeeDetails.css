@@ -29,7 +29,7 @@ p {
 /* Mobile Responsive Styles */
 @media only screen and (max-width: 600px) {
   .div-image img {
-      max-width: 30%; /* Reduced image width to 30% */
+      max-width: 70%; /* Reduced image width to 30% */
   }
 
   h2 {

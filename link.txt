@@ -16,3 +16,5 @@ fourZerofour.jsx ->
 https://th.bing.com/th/id/OIP.FHseQxjyNfV4wHpoPYx0SwHaD2?rs=1&pid=ImgDetMain -- 404 Not Found
 
 
+// const GOOGLE_TRANSLATE_API_KEY = import.meta.env.REACT_APP_GOOGLE_TRANSLATE_API_KEY; // Sunucuda(vercel) bu anahtar olacak
+const GOOGLE_TRANSLATE_API_KEY = import.meta.env.VITE_APP_GOOGLE_TRANSLATE_API_KEY; // local'de bu anahtar olacak

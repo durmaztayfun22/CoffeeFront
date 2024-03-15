@@ -1,70 +1,105 @@
-import React, { useState, useEffect } from 'react';
+// Header.jsx
+import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, Link  } from 'react-router-dom';
+
 import './Header.css';
 
-// Header bileşeni
-const Header = () => {
-    // pageTitle state'i ve setPageTitle fonksiyonu
+const Header = ({ locale, setLocale }) => {
     const [pageTitle, setPageTitle] = useState('Coffees');
+    const [pageDescription, setPageDescription] = useState('We are coffee drinkers who dont overdo our Americanos. To make the best coffee, time, temperature and technique must be in place, but without quality beans roasted to perfection, its all for nothing.');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-    // Header bileşeni JSX'i
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, []);
+
+    const toggleDropdown = () => {
+        if (!isDropdownOpen) {
+            setIsDropdownOpen(true);
+        }
+    };
+
+    const toggleLocale = (selectedLocale) => {
+        setLocale(selectedLocale);
+        setIsDropdownOpen(false);
+    };
+
+    function PageTitleUpdater({ setPageTitle, setPageDescription }) {
+        const location = useLocation();
+       
+        useEffect(() => {
+           const fetchPageTitle = () => {
+             const path = location.pathname;
+             switch (path) {
+               case '/about':
+                 setPageTitle(locale === 'tr' ? 'Hakkımızda' : 'About');
+                 setPageDescription(null);
+                 break;
+               case '/contact':
+                 setPageTitle(locale === 'tr' ? 'Bizimle İletişime Geçin' : 'Contact Us');
+                 setPageDescription(null);
+                 break;  
+               default:
+                 setPageTitle(locale === 'tr' ? 'Kahveler' : 'Coffees');
+                 setPageDescription(locale === 'tr' ? 'Bu, kahve içenlerin Americanolarını aşırıya kaçırmadığı bir dünya. En iyi kahveyi yapmak için, zaman, sıcaklık ve teknik yerinde olmalıdır, ancak mükemmel şekilde kavrulmuş kaliteli çekirdekler olmadan, bu tümü için bir hiçtir.' : 'We are coffee drinkers who dont overdo our Americanos. To make the best coffee, time, temperature and technique must be in place, but without quality beans roasted to perfection, its all for nothing.');
+                 break;
+             }
+           };
+       
+           fetchPageTitle();
+        }, [location, setPageTitle]);
+       
+        return null;
+    }
+
     return(
         <>
             <div className="container">  
                 <header className="header">
                     <div className="header-content">
-                        {/* Başlık */}
                         <Link to="/" className="title">
                             <img src="https://i.imgur.com/qscsMyf.png" alt="coffeeCup" />
-                            <span className="fs-4">Coffee</span>
+                            <span className="fs-4">{locale === 'tr' ? 'Kahve' : 'Coffee'}</span>
                         </Link>
 
-                        {/* Menü */}
                         <ul className="ul">
-                            <li className="li"><Link to="/" className="nav-link">Home</Link></li>
-                            <li className="li"><Link to="/about" className="nav-link">About</Link></li>
-                            <li className="li"><Link to="/contact" className="nav-link">Contact</Link></li>
+                            <li className='language-li li' onClick={toggleDropdown} ref={dropdownRef} >
+                                {locale === 'tr' ? 'Sayfa Dilini Çevir' : 'Language'}
+                                {isDropdownOpen && (
+                                    <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
+                                        <span onClick={() => toggleLocale('en')}>English</span>
+                                        <span onClick={() => toggleLocale('tr')}>TÜRKÇE</span>
+                                    </div>
+                                )}
+                            </li>
+                            <li className="li"><Link to="/" className="nav-link">{locale === 'tr' ? 'Ana Sayfa' : 'Home'}</Link></li>
+                            <li className="li"><Link to="/about" className="nav-link">{locale === 'tr' ? 'Hakkında' : 'About'}</Link></li>
+                            <li className="li"><Link to="/contact" className="nav-link">{locale === 'tr' ? 'İletişim' : 'Contact'}</Link></li>
                         </ul>
                     </div>
 
-                    {/* Başlık */}
                     <div className='headertitlebig'>
                         <h1>{pageTitle}</h1>
                     </div>
+                    <div className='headerOP'>
+                        <p> {pageDescription} </p>
+                    </div>
                 </header>
-
-                {/* Sayfa başlığını güncelleyen bileşen */}
-                <PageTitleUpdater setPageTitle={setPageTitle} />
+                <PageTitleUpdater setPageTitle={setPageTitle} setPageDescription={setPageDescription} />
             </div>
         </>
     )
-}
-
-// Sayfa başlığını güncelleyen bileşen
-function PageTitleUpdater({ setPageTitle }) {
-    const location = useLocation();
-   
-    // useEffect kancası ile sayfa başlığını güncelleme
-    useEffect(() => {
-       const fetchPageTitle = () => {
-         const path = location.pathname;
-         switch (path) {
-           case '/about':
-             setPageTitle('About');
-             break;
-           case '/contact':
-             setPageTitle('Contact Us');
-             break;
-           default:
-             setPageTitle('Coffees');
-             break;
-         }
-       };
-   
-       fetchPageTitle();
-    }, [location, setPageTitle]);
-   
-    return null; // Bu bileşen hiçbir şey render etmez
 }
 
 export default Header;
