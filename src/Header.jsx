@@ -47,7 +47,7 @@ const Header = ({ locale, setLocale }) => {
                  setPageDescription(null);
                  break;
                case '/contact':
-                 setPageTitle(locale === 'tr' ? 'Bizimle İletişime Geçin' : 'Contact Us');
+                 setPageTitle(locale === 'tr' ? 'İletişim' : 'Contact');
                  setPageDescription(null);
                  break;  
                default:
