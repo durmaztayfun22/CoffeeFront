@@ -35,6 +35,15 @@ const Header = ({ locale, setLocale }) => {
         setIsDropdownOpen(false);
     };
 
+    const toggleMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    };
+
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    
+
+
+
     function PageTitleUpdater({ setPageTitle, setPageDescription }) {
         const location = useLocation();
        
@@ -73,20 +82,26 @@ const Header = ({ locale, setLocale }) => {
                             <span className="fs-4">{locale === 'tr' ? 'Kahve' : 'Coffee'}</span>
                         </Link>
 
-                        <ul className="ul">
-                            <li className='language-li li' onClick={toggleDropdown} ref={dropdownRef} >
+                        <button className="hamburger-menu-btn" onClick={toggleMenu}>
+                            <span className="hamburger-icon">&#9776;</span>
+                        </button>
+
+                        <div className="mobile-menu">
+                            <ul className="ul">
+                                <li className='language-li li' onClick={toggleDropdown} ref={dropdownRef} >
                                 {locale === 'tr' ? 'Sayfa Dilini Çevir' : 'Language'}
                                 {isDropdownOpen && (
                                     <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
-                                        <span onClick={() => toggleLocale('en')}>English</span>
-                                        <span onClick={() => toggleLocale('tr')}>TÜRKÇE</span>
+                                    <span onClick={() => toggleLocale('en')}>English</span>
+                                    <span onClick={() => toggleLocale('tr')}>TÜRKÇE</span>
                                     </div>
                                 )}
-                            </li>
-                            <li className="li"><Link to="/" className="nav-link">{locale === 'tr' ? 'Ana Sayfa' : 'Home'}</Link></li>
-                            <li className="li"><Link to="/about" className="nav-link">{locale === 'tr' ? 'Hakkında' : 'About'}</Link></li>
-                            <li className="li"><Link to="/contact" className="nav-link">{locale === 'tr' ? 'İletişim' : 'Contact'}</Link></li>
-                        </ul>
+                                </li>
+                                <li className="li"><Link to="/" className="nav-link">{locale === 'tr' ? 'Ana Sayfa' : 'Home'}</Link></li>
+                                <li className="li"><Link to="/about" className="nav-link">{locale === 'tr' ? 'Hakkında' : 'About'}</Link></li>
+                                <li className="li"><Link to="/contact" className="nav-link">{locale === 'tr' ? 'İletişim' : 'Contact'}</Link></li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div className='headertitlebig'>

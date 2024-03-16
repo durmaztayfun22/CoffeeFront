@@ -41,7 +41,7 @@ const CoffeeDetails = ({ locale }) => {
           <h2>{coffee?.attributes?.name}</h2> {/* Displaying coffee name */}
           <p>Description: {coffee?.attributes?.description}</p> {/* Displaying coffee description */}
           <p>Origin: {coffee?.attributes?.origin}</p> {/* Displaying coffee origin */}
-          <p>Price: {coffee?.attributes?.price}</p> {/* Displaying coffee price */}
+          <p>Price: {coffee?.attributes?.price} 💲</p> {/* Displaying coffee price */}
         </div>
       </>
     )

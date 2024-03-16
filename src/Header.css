@@ -54,6 +54,10 @@
     margin-left: 0;
   }
 
+  .hamburger-menu-btn {
+    display: none; /* Ekran boyutu 1100px'nin üstündeyse mobil menüyü gizle */
+  }
+
   .ul li {
     color: black;
     list-style: none;
@@ -206,22 +210,55 @@
     }
   
     .title {
-      width: auto;
+      top: 20px;
+      width: calc(50% - 40px); /* Hamburger menü butonunun genişliği kadar azaltarak sol tarafa yerleştirin */
+      left: 20px; /* Sol taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */
     }
-  
-    .ul li {
-      margin-left: 0;
-      margin-bottom: 10px;
+    
+    .mobile-menu {
       display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      max-width: 0; /* Başlangıçta menü gizlidir */
+      background-color: rgba(0, 0, 0, 0.8);
+      overflow-x: hidden;
+      transition: max-width 0.5s; /* Max genişlik değişiklikleri için geçiş efekti ekler */
+      z-index: 999;
     }
-
+    
+    .mobile-menu.open {
+      max-width: 250px; /* Menü açıldığında max genişlik 250 piksel olur */
+    }
+    
+    
+    .mobile-menu ul {
+      padding: 20px; /* Liste öğeleri arasında boşluk ekler */
+    }
+    
+    .mobile-menu ul li {
+      margin-bottom: 10px; /* Liste öğeleri arasında boşluk ekler */
+    }
+    
+    .hamburger-menu-btn {
+      top: 20px;
+      display: block; /* Ekran boyutu 1100px'nin altındaysa göster */
+      color: #000;
+      background-color: transparent;
+      right: 20px; /* Sağ taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */ /* İstediğiniz yüksekliğe göre ayarlayın */
+      z-index: 1000; /* Diğer içeriğin üstünde olması için */
+    }
+    
     .headertitlebig {
-      margin-top: 100px;
+      margin-top: 20px;
     }
   
   
     .headertitlebig h1 {
-      font-size: 45px;
+      font-size: 35px;
     }
   
     .card-container {
@@ -246,7 +283,27 @@
     }
   
     .title {
-      width: auto;
+      top: 20px;
+      width: calc(50% - 40px); /* Hamburger menü butonunun genişliği kadar azaltarak sol tarafa yerleştirin */
+      left: 20px; /* Sol taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */
+    }
+    
+    .hamburger-menu-btn {
+      top: 20px;
+      display: block; /* Ekran boyutu 1100px'nin altındaysa göster */
+      color: #000;
+      background-color: transparent;
+      right: 20px; /* Sağ taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */ /* İstediğiniz yüksekliğe göre ayarlayın */
+    }
+  
+    .ul {
+      display: none; /* Ekran boyutu 1100px'nin altındaysa menüyü gizle */
+    }
+  
+    .mobile-menu {
+      display: block; /* Ekran boyutu 1100px'nin altındaysa mobil menüyü göster */
     }
   
     .ul li {
@@ -254,13 +311,14 @@
       margin-bottom: 10px;
       display: block;
     }
-
-    .headertitlebig {
-      margin-top: 50px;
-    }
   
     .headertitlebig h1 {
-      font-size: 37px;
+      font-size: 25px;
+    }
+
+    .headerOP p{
+      font-size: 10px;
+      width: 100%;
     }
   
     .card-container {
@@ -276,9 +334,36 @@
   
   @media (max-width: 600px){
 
-
+    .title {
+      top: 20px;
+      width: calc(50% - 40px); /* Hamburger menü butonunun genişliği kadar azaltarak sol tarafa yerleştirin */
+      left: 20px; /* Sol taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */
+    }
+    
+    .hamburger-menu-btn {
+      top: 20px;
+      display: block; /* Ekran boyutu 1100px'nin altındaysa göster */
+      color: #000;
+      background-color: transparent;
+      right: 20px; /* Sağ taraftan 20px içeride başlamasını sağlar */
+      position: absolute; /* Diğer stillerle birlikte mutlak konumlandırma kullanın */ /* İstediğiniz yüksekliğe göre ayarlayın */
+    }
+  
+    .ul {
+      display: none; /* Ekran boyutu 1100px'nin altındaysa menüyü gizle */
+    }
+  
+    .mobile-menu {
+      display: block; /* Ekran boyutu 1100px'nin altındaysa mobil menüyü göster */
+    }
 
     .headertitlebig h1 {
-      font-size: 20px;
+      font-size: 10px;
+    }
+
+    .headerOP p{
+      max-width: 100%;
+      font-size: 8px;
     }
   }
