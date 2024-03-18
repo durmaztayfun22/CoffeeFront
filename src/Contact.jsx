@@ -83,15 +83,15 @@ const Contact = ({ locale }) => {
             </div>
             <ul>
               <li>
-                <input className="name" value={name} onChange={e => setName(e.target.value)} type="text" name="name" id="name" placeholder="NAME" required/>
-                <input className="surname" value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname" id="surname" placeholder="SURNAME" required />
+                <input className="name" value={name} onChange={e => setName(e.target.value)} type="text" name="name" id="name" placeholder={locale === 'tr' ? 'ADINIZ' : 'NAME'} required/>
+                <input className="surname" value={surname} onChange={e => setSurname(e.target.value)} type="text" name="surname" id="surname" placeholder={locale === 'tr' ? 'SOYADINIZ' : 'SURNAME'} required />
               </li>
               <li>
-                <input className="phone" value={phone} onChange={e => setPhone(e.target.value)} type="text" name="phone" id="phone" placeholder="PHONE" required />
-                <input className="mail" value={mail} onChange={e => setMail(e.target.value)} type="text" name="mail" id="mail" placeholder="MAİL" required />
+                <input className="phone" value={phone} onChange={e => setPhone(e.target.value)} type="text" name="phone" id="phone" placeholder={locale === 'tr' ? 'TELEFON NUMARANIZ' : 'PHONE'} required />
+                <input className="mail" value={mail} onChange={e => setMail(e.target.value)} type="text" name="mail" id="mail" placeholder={locale === 'tr' ? 'MAIL ADRESINIZ' : 'MAIL'} required />
               </li>
               <li>
-                <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder="DESCRİPTİON" required />
+                <input className="description" value={description} onChange={e => setDescription(e.target.value)} type="text" name="description" id="description" placeholder={locale === 'tr' ? 'AÇIKLAMA' : 'DESCRIPTION'} required />
               </li>
             </ul>
             <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>{locale === 'tr' ? 'Mesajı Gönder' : 'SEND MESSAGE'}</button>
