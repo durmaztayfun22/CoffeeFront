@@ -8,7 +8,11 @@ const Header = ({ locale, setLocale }) => {
     const [pageTitle, setPageTitle] = useState('Coffees');
     const [pageDescription, setPageDescription] = useState('We are coffee drinkers who dont overdo our Americanos. To make the best coffee, time, temperature and technique must be in place, but without quality beans roasted to perfection, its all for nothing.');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
+    const buttonClass = isMobileMenuOpen ? 'hamburger-menu-btn hidden' : 'hamburger-menu-btn';
     const dropdownRef = useRef(null);
+    const menuRef = useRef(null);
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
@@ -24,6 +28,30 @@ const Header = ({ locale, setLocale }) => {
         };
     }, []);
 
+    useEffect(() => {
+        // Sayfa üzerinde herhangi bir yere tıklandığında menüyü kapat
+        const handleClickOutside = (event) => {
+            if (menuRef.current && !menuRef.current.contains(event.target)) {
+                setIsMobileMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
+        // Mobile menu durumu değiştiğinde uygun sınıfı ekleyip kaldırma
+        if (isMobileMenuOpen) {
+            document.body.classList.add('menu-open');
+        } else {
+            document.body.classList.remove('menu-open');
+        }
+    }, [isMobileMenuOpen]);
+
+
     const toggleDropdown = () => {
         if (!isDropdownOpen) {
             setIsDropdownOpen(true);
@@ -38,10 +66,6 @@ const Header = ({ locale, setLocale }) => {
     const toggleMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
-
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    
-
 
 
     function PageTitleUpdater({ setPageTitle, setPageDescription }) {
@@ -82,11 +106,11 @@ const Header = ({ locale, setLocale }) => {
                             <span className="fs-4">{locale === 'tr' ? 'Kahve' : 'Coffee'}</span>
                         </Link>
 
-                        <button className="hamburger-menu-btn" onClick={toggleMenu}>
+                        <button className={buttonClass} onClick={toggleMenu}>
                             <span className="hamburger-icon">&#9776;</span>
                         </button>
 
-                        <div className="mobile-menu">
+                        <div  ref={menuRef} className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
                             <ul className="ul">
                                 <li className='language-li li' onClick={toggleDropdown} ref={dropdownRef} >
                                 {locale === 'tr' ? 'Sayfa Dilini Çevir' : 'Language'}
