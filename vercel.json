@@ -9,7 +9,7 @@
     ],
     "routes": [
       { "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|json))$", "dest": "/build/$1" },
-      { "src": "/(.*)", "dest": "/src/index.html" }
+      { "src": "/(.*)", "dest": "./index.html" }
     ]
   }
   
