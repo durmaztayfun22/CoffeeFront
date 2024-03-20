@@ -307,7 +307,7 @@
     }
     
     .mobile-menu.open {
-      max-width: 250px; /* Menü açıldığında max genişlik 250 piksel olur */
+      max-width: 80px; /* Menü açıldığında max genişlik 250 piksel olur */
     }
     
     
@@ -317,6 +317,11 @@
     
     .mobile-menu ul li {
       margin-bottom: 10px; /* Liste öğeleri arasında boşluk ekler */
+      font-size: 12px;
+    }
+
+    .mobile-menu .ul .li .nav-link {
+      font-size: 12px;
     }
     
     .hamburger-menu-btn {

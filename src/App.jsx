@@ -31,10 +31,10 @@ function App() {
       <Router>
         <Header locale={locale} setLocale={setLocale} />
         <Routes >
-          <Route path="/" element={<HomeContent locale={locale}/>} />
-          <Route path="/about" element={<About locale={locale}/>} />
-          <Route path="/contact" element={<Contact locale={locale}/>} />
-          <Route path="/coffeeDetails/:slug" element={<CoffeeDetails locale={locale}/>} />
+          <Route exact path="/" element={<HomeContent locale={locale}/>} />
+          <Route exact path="/about" element={<About locale={locale}/>} />
+          <Route exact path="/contact" element={<Contact locale={locale}/>} />
+          <Route exact path="/coffeeDetails/:slug" element={<CoffeeDetails locale={locale}/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer locale={locale} />

@@ -110,22 +110,7 @@ export default Contact;
 
 
 //-------------------------------------------------------------------------------------------------------------------------------
-// const GOOGLE_MAPS_API_KEY = import.meta.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Sunucuda(vercel) bu anahtar olacak
-  // const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY; // local'de bu anahtar olacak
-  // const mapStyles = {
-  //   height: "55vh",
-  //   width: "100%"
-  // };
 
-  // const defaultCenter = {
-  //   lat: 40.712776,
-  //   lng: -74.005974
-  // };
-  // <div className="Con-Body-ContactUS-map">
-  //           <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
-  //             <GoogleMap mapContainerStyle={mapStyles} zoom={13}  center={defaultCenter}/>
-  //           </LoadScript>
-  //         </div>
 //-------------------------------------------------------------------------------------------------------------------------------
 // Kahve Formu
 // Kahve içeceğiniz sıklık nedir?
