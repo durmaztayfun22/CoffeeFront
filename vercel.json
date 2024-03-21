@@ -1,14 +1,5 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
-    "rewrites": [
-        {
-          "source": "/about",
-          "destination": "https://www.tayfundurmaz.net/about"
-        },
-        {
-            "source": "/contact",
-            "destination": "https://www.tayfundurmaz.net/contact"
-        }
-    ]
+    "rewrites": []
 }
