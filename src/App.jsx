@@ -7,7 +7,7 @@ import NotFoundPage from './fourZerofour';
 import HomeContent from './HomeContent';
 import CoffeeDetails from './CoffeeDetails';
 import LoadingPage from "./Loading";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 
 function App() {
