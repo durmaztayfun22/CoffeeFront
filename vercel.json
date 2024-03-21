@@ -1,5 +1,14 @@
 {
     "cleanUrls": true,
     "trailingSlash": false,
-    "rewrites": []
+    "rewrites": [
+        {
+          "source": "/about",
+          "destination": "/About.jsx"
+        },
+        {
+            "source": "/contact",
+            "destination": "/Contact.jsx"
+        }
+    ]
 }
