@@ -1,21 +1,14 @@
 {
-    "version": 2,
-    "builds": [
-        {
-        "src": "package.json",
-        "use": "@vercel/static-build"
-        }
-    ],
     "cleanUrls": true,
     "trailingSlash": false,
     "rewrites": [
         {
           "source": "/about",
-          "destination": "/src/About.jsx"
+          "destination": "/About"
         },
         {
             "source": "/contact",
-            "destination": "/src/Contact.jsx"
+            "destination": "/Contact"
         }
     ]
 }
