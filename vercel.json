@@ -4,11 +4,11 @@
     "rewrites": [
         {
           "source": "/about",
-          "destination": "/About.jsx"
+          "destination": "/src/About.jsx"
         },
         {
             "source": "/contact",
-            "destination": "/Contact.jsx"
+            "destination": "/src/Contact.jsx"
         }
     ]
 }
