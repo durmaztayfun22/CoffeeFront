@@ -1,14 +1,9 @@
 {
+    "public": true,
     "cleanUrls": true,
     "trailingSlash": false,
-    "rewrites": [
-        {
-          "source": "/about",
-          "destination": "/About"
-        },
-        {
-            "source": "/contact",
-            "destination": "/Contact"
-        }
+    "redirects": [
+        { "source": "/about", "destination": "/About.jsx", "permanent": false },
+        { "source": "/contact", "destination": "/Contact.jsx", "permanent": false }
     ]
 }
