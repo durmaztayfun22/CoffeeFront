@@ -3,7 +3,9 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-        { "source": "https://www.tayfundurmaz.net/about", "destination": "https://www.tayfundurmaz.net/about", "permanent": false },
-        { "source": "https://www.tayfundurmaz.net/contact", "destination": "https://www.tayfundurmaz.net/contact", "permanent": false }
+        { "source": "/about", "destination": "/about", "statusCode": 200 },
+        { "source": "/contact", "destination": "/contact", "statusCode": 200 },
+        { "source": "/about/", "destination": "/about", "statusCode": 301 },
+        { "source": "/contact/", "destination": "/contact", "statusCode": 301 }
     ]
 }
