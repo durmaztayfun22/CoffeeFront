@@ -3,7 +3,7 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-        { "source": "/about", "destination": "/about", "permanent": false },
-        { "source": "/contact", "destination": "/contact", "permanent": false }
+        { "source": "https://www.tayfundurmaz.net/about", "destination": "https://www.tayfundurmaz.net/about", "permanent": false },
+        { "source": "https://www.tayfundurmaz.net/contact", "destination": "https://www.tayfundurmaz.net/contact", "permanent": false }
     ]
 }
