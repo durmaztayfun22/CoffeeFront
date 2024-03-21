@@ -16,5 +16,11 @@
     
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      if (window.location.pathname === '/about' || window.location.pathname === '/contact') {
+          window.location.replace('/');
+      }
+    </script>
+  
   </body>
 </html>
