@@ -3,7 +3,7 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "redirects": [
-        { "source": "/about", "destination": "/About.jsx", "permanent": false },
-        { "source": "/contact", "destination": "/Contact.jsx", "permanent": false }
+        { "source": "/about", "destination": "/about", "permanent": false },
+        { "source": "/contact", "destination": "/contact", "permanent": false }
     ]
 }
