@@ -9,7 +9,6 @@ const Header = ({ locale, setLocale }) => {
     const [pageDescription, setPageDescription] = useState('We are coffee drinkers who dont overdo our Americanos. To make the best coffee, time, temperature and technique must be in place, but without quality beans roasted to perfection, its all for nothing.');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isButtonClicked, setIsButtonClicked] = useState(false);
     const buttonClass = isMobileMenuOpen ? 'hamburger-menu-btn hidden' : 'hamburger-menu-btn';
     const dropdownRef = useRef(null);
     const menuRef = useRef(null);

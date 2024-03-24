@@ -6,28 +6,25 @@ import NotFoundPage from './fourZerofour';
 
 import { Link } from 'react-router-dom';
 
-//   en: 'https://strapidevelopment.onrender.com/api/coffees?locale=en',
-//   tr: 'https://strapidevelopment.onrender.com/api/coffees?locale=tr'
-
-
 const HomeContent = ({ locale }) => {
 
-    // const api = 'https://strapidevelopment.onrender.com/api/coffees';
-    const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
     const [data, setData] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
+    // const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
+    const api = import.meta.env.VITE_APP_API_URL;
+
     const fetchData = async () => {
       try {
         const response = await axios.get(api);
-        const veri = response.data;
+        const veri = await response.data;
         setData(veri);
-      } catch (error) {
-        console.log(error);
-      }       
+        } catch (error) {
+            console.log(error);
+        }    
     };
   
     useEffect(() => {
@@ -40,10 +37,29 @@ const HomeContent = ({ locale }) => {
 
     const handleCategoryClick = (category) => {
       setSelectedCategory(category);
-      const filteredItems = data.data.filter(item => item.attributes.rich[0]?.children[0]?.text.includes(category));
+      // Kategoriye göre filtreleme
+      const filteredItems = data.filter(item => {
+         // item.rich'in tanımlı olduğunu kontrol et
+         if (item.rich) {
+             // Her bir item için rich dizisini döngüye al
+             return item.rich.some(richItem => {
+                 // richItem.children'in tanımlı olduğunu kontrol et
+                 if (richItem.children) {
+                     // richItem'in children dizisini döngüye al
+                     return richItem.children.some(child => {
+                         // child'in text özelliğini kontrol et ve kategoriye göre filtreleme
+                         const categories = child.text.split(', '); // Kategorileri ayır
+                         return categories.includes(category); // Kategoriye göre filtreleme
+                     });
+                 }
+                 return false;
+             });
+         }
+         return false;
+      });
       setFilteredData(filteredItems);
-    };
-  
+     };
+
     const handleImageClick = (src, alt) => {
       setSelectedImage({ src, alt });
       setShowModal(true)
@@ -66,20 +82,20 @@ const HomeContent = ({ locale }) => {
           </ul>
         </div>
         <div className="card-container">
-          {(filteredData?.length > 0 ? filteredData : data?.data)?.map((item) => {
+          {(filteredData?.length > 0 ? filteredData : data)?.map((item) => {
             return (
               <div key={item?.id} className="card">
-                <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
-                  <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
+                <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.img_url}`, item?.slug)}>
+                  <img src={`${item?.img_url}`} alt={item?.name} className="img-fluid" />
                 </div>
-                <Link to={`/coffeeDetails/${item?.attributes?.slug}`}>
+                <Link to={`/coffeeDetails/${item?.slug}`}>
                   <div className="card-body">
                     <div className='item-container' id='container'>
                       <div className='item-details'>
-                        <h2 className="card-title">{item?.attributes?.name}</h2>
-                        <p className='card-text'>Description: {item?.attributes?.description}</p>
-                        <p className='card-text'>Origin: {item?.attributes?.origin}</p>
-                        <span className='card-text price'>Price: {item?.attributes?.price}💲</span>
+                        <h2 className="card-title">{item?.name}</h2>
+                        <p className='card-text'>Description: {item?.description}</p>
+                        <p className='card-text'>Origin: {item?.origin}</p>
+                        <span className='card-text price'>Price: {item?.price}💲</span>
                       </div>
                     </div>
                   </div>
