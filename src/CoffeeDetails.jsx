@@ -10,7 +10,7 @@ const CoffeeDetails = ({ locale }) => {
     const { slug } = useParams(); // Extracting slug from URL parameters using useParams hook
     const [coffee, setCoffee] = useState(null); // State for storing coffee data
     // const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
-    const api = import.meta.env.VITE_APP_API_URL;
+    const api = "https://postgresknex.vercel.app/coffees";
     useEffect(() => {
         // Function to fetch coffee data
         const fetchData = async () => {

@@ -15,7 +15,7 @@ const HomeContent = ({ locale }) => {
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     // const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
-    const api = import.meta.env.VITE_APP_API_URL;
+    const api = "https://postgresknex.vercel.app/coffees";
 
     const fetchData = async () => {
       try {
