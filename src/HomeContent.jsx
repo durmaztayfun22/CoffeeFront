@@ -14,8 +14,8 @@ const HomeContent = ({ locale }) => {
     const [filteredData, setFilteredData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
 
-    // const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
-    const api = "https://postgresknex.vercel.app/coffees";
+    const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
+    // const api = "https://postgresknex.vercel.app/coffees";  //Burası api değiştiğinde kullanılacak 
 
     const fetchData = async () => {
       try {
@@ -36,29 +36,38 @@ const HomeContent = ({ locale }) => {
     }
 
     const handleCategoryClick = (category) => {
-      setSelectedCategory(category);
-      // Kategoriye göre filtreleme
-      const filteredItems = data.filter(item => {
-         // item.rich'in tanımlı olduğunu kontrol et
-         if (item.rich) {
-             // Her bir item için rich dizisini döngüye al
-             return item.rich.some(richItem => {
-                 // richItem.children'in tanımlı olduğunu kontrol et
-                 if (richItem.children) {
-                     // richItem'in children dizisini döngüye al
-                     return richItem.children.some(child => {
-                         // child'in text özelliğini kontrol et ve kategoriye göre filtreleme
-                         const categories = child.text.split(', '); // Kategorileri ayır
-                         return categories.includes(category); // Kategoriye göre filtreleme
-                     });
-                 }
-                 return false;
-             });
-         }
-         return false;
-      });
+
+      // Seçilen kategoriye göre filtreleme yap
+      const filteredItems = data.data.filter(item => item.attributes.rich[0]?.children[0]?.text.includes(category));
+      // Filtrelenmiş verileri state'e ata
       setFilteredData(filteredItems);
-     };
+    };
+
+    //Burası api değiştiğinde kullanılacak 
+    // const handleCategoryClick = (category) => {
+    //   setSelectedCategory(category);
+    //   // Kategoriye göre filtreleme
+    //   const filteredItems = data.filter(item => {
+    //      // item.rich'in tanımlı olduğunu kontrol et
+    //      if (item.rich) {
+    //          // Her bir item için rich dizisini döngüye al
+    //          return item.rich.some(richItem => {
+    //              // richItem.children'in tanımlı olduğunu kontrol et
+    //              if (richItem.children) {
+    //                  // richItem'in children dizisini döngüye al
+    //                  return richItem.children.some(child => {
+    //                      // child'in text özelliğini kontrol et ve kategoriye göre filtreleme
+    //                      const categories = child.text.split(', '); // Kategorileri ayır
+    //                      return categories.includes(category); // Kategoriye göre filtreleme
+    //                  });
+    //              }
+    //              return false;
+    //          });
+    //      }
+    //      return false;
+    //   });
+    //   setFilteredData(filteredItems);
+    //  };
 
     const handleImageClick = (src, alt) => {
       setSelectedImage({ src, alt });
@@ -81,7 +90,9 @@ const HomeContent = ({ locale }) => {
             <li className={selectedCategory === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>{locale === 'tr' ? 'Soğuk Kahveler' : 'Cold Coffees'}</li>
           </ul>
         </div>
-        <div className="card-container">
+
+        {/* Burası api değiştiğinde kullanılacak */}
+        {/* <div className="card-container">
           {(filteredData?.length > 0 ? filteredData : data)?.map((item) => {
             return (
               <div key={item?.id} className="card">
@@ -106,10 +117,36 @@ const HomeContent = ({ locale }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
+
+        <div className="card-container">
+          {data?.data?.length > 0 && data?.data?.map((item) => {
+              return (
+                <div key={item?.id} className="card">
+                  <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
+                    <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
+                  </div>
+                  <Link to={`/coffeeDetails/${item?.attributes?.slug}`}>
+                    <div className="card-body">
+                      <div className='item-container' id='container'>
+                        <div className='item-details'>
+                          <h2 className="card-title">{item?.attributes?.name}</h2>
+                          <p className='card-text'>Description: {item?.attributes?.description}</p>
+                          <p className='card-text'>Origin: {item?.attributes?.origin}</p>
+                          <span className='card-text price'>Price: {item?.attributes?.price}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  {showModal && selectedImage && (
+                    <Modal src={selectedImage.src} alt={selectedImage.alt} onClose={handleCloseModel}/>
+                  )}
+                </div>
+              );
+          })}
+        </div>       
       </>
     );
-    
 }
 
 export default HomeContent;
