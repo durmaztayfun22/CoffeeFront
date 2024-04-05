@@ -12,7 +12,8 @@ const HomeContent = ({ locale }) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    //Burası api değiştiğinde kullanılacak 
+    // const [selectedCategory, setSelectedCategory] = useState(null);
 
     const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
     // const api = "https://postgresknex.vercel.app/coffees";  //Burası api değiştiğinde kullanılacak 
@@ -82,12 +83,12 @@ const HomeContent = ({ locale }) => {
       <>
         <div className="sıralama">
           <ul>
-            <li className={selectedCategory === "Strong Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Strong Coffees")}>{locale === 'tr' ? 'Sert Kahveler' : 'Strong Coffees'}</li>
-            <li className={selectedCategory === "Soft Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Soft Coffees")}>{locale === 'tr' ? 'Yumuşak Kahveler' : 'Soft Coffees'}</li>
-            <li className={selectedCategory === "Milk Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Milk Coffees")}>{locale === 'tr' ? 'Sütlü Kahveler' : 'Milk Coffees'}</li>
-            <li className={selectedCategory === "Coffees Without Milk" ? "selected" : ""} onClick={() => handleCategoryClick("Coffees Without Milk")}>{locale === 'tr' ? 'Sütsüz Kahveler' : 'Coffees Without Milk'}</li>
-            <li className={selectedCategory === "Hot Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Hot Coffees")}>{locale === 'tr' ? 'Sıcak Kahveler' : 'Hot Coffees'}</li>
-            <li className={selectedCategory === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>{locale === 'tr' ? 'Soğuk Kahveler' : 'Cold Coffees'}</li>
+            <li className={filteredData === "Strong Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Strong Coffees")}>{locale === 'tr' ? 'Sert Kahveler' : 'Strong Coffees'}</li>
+            <li className={filteredData === "Soft Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Soft Coffees")}>{locale === 'tr' ? 'Yumuşak Kahveler' : 'Soft Coffees'}</li>
+            <li className={filteredData === "Milk Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Milk Coffees")}>{locale === 'tr' ? 'Sütlü Kahveler' : 'Milk Coffees'}</li>
+            <li className={filteredData === "Coffees Without Milk" ? "selected" : ""} onClick={() => handleCategoryClick("Coffees Without Milk")}>{locale === 'tr' ? 'Sütsüz Kahveler' : 'Coffees Without Milk'}</li>
+            <li className={filteredData === "Hot Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Hot Coffees")}>{locale === 'tr' ? 'Sıcak Kahveler' : 'Hot Coffees'}</li>
+            <li className={filteredData === "Cold Coffees" ? "selected" : ""} onClick={() => handleCategoryClick("Cold Coffees")}>{locale === 'tr' ? 'Soğuk Kahveler' : 'Cold Coffees'}</li>
           </ul>
         </div>
 
@@ -120,7 +121,7 @@ const HomeContent = ({ locale }) => {
         </div> */}
 
         <div className="card-container">
-          {data?.data?.length > 0 && data?.data?.map((item) => {
+          {(filteredData?.length > 0 ? filteredData : data?.data)?.map((item) => {
               return (
                 <div key={item?.id} className="card">
                   <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
