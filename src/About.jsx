@@ -10,7 +10,7 @@ const About = ({ locale }) => {
         <div className="About">
           <div className="Content-1 grid">
             <div className="Content-1-img">
-              <img src="https://gcdnb.pbrd.co/images/JUoQqxnOl2he.jpg?o=1" alt="coffeeee" className="Contentİmg-1" />
+              <img src="https://i.imgur.com/y1RzqJM.jpeg" alt="coffeeee" className="Contentİmg-1" />
             </div>
             <div className="Content-subject-All">
               <div className="Content-title">

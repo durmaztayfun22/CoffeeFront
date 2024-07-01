@@ -70,13 +70,13 @@ const Contact = ({ locale }) => {
             </div>
           </div>
           <div className="Con-BodyImg">
-            <img src="https://gcdnb.pbrd.co/images/PdDQJf37lwrX.jpg?o=1" alt="Support" className="Con-Body-img" />
+            <img src="https://i.imgur.com/riUAKiG.jpeg" alt="Support" className="Con-Body-img" />
           </div>
         </div>
         <div className="Con-Body-ContactUS">
           <div className="Con-Body-ContactUS-Form">
             <div className="coffeeSticker-1">
-              <img src="https://gcdnb.pbrd.co/images/9O6dRPgRg0IZ.png?o=1" alt="coffeeSticker-1" />
+              <img src="https://i.imgur.com/YuSPneR.png" alt="coffeeSticker-1" />
             </div>
             <div className="Con-Body-ContactUS-Form-title">
               <h3>{locale === 'tr' ? 'Bizimle İletişime Geçin' : 'Contact US'}</h3>
@@ -96,7 +96,7 @@ const Contact = ({ locale }) => {
             </ul>
             <button className="Con-Body-ContactUS-Button" onClick={ContactMessage}>{locale === 'tr' ? 'Mesajı Gönder' : 'SEND MESSAGE'}</button>
             <div className="coffeeSticker-2">
-              <img src="https://gcdnb.pbrd.co/images/6yxw8nS2525P.png?o=1" alt="coffeeSticker-2" />
+              <img src="https://i.imgur.com/SE1k6mS.png" alt="coffeeSticker-2" />
             </div>
           </div>
         </div>
