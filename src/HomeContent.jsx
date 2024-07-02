@@ -12,11 +12,8 @@ const HomeContent = ({ locale }) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
-    //Burası api değiştiğinde kullanılacak 
-    // const [selectedCategory, setSelectedCategory] = useState(null);
 
-    const api = locale === 'tr' ? 'https://strapidevelopment.onrender.com/api/coffees?locale=tr' : 'https://strapidevelopment.onrender.com/api/coffees?locale=en';
-    // const api = "https://postgresknex.vercel.app/coffees";  //Burası api değiştiğinde kullanılacak 
+    const api = locale === 'tr' ? 'https://st2-x0kh.onrender.com/api/coffees?locale=tr' : 'https://st2-x0kh.onrender.com/api/coffees?locale=en';
 
     const fetchData = async () => {
       try {
@@ -37,38 +34,14 @@ const HomeContent = ({ locale }) => {
     }
 
     const handleCategoryClick = (category) => {
-
       // Seçilen kategoriye göre filtreleme yap
-      const filteredItems = data.data.filter(item => item.attributes.rich[0]?.children[0]?.text.includes(category));
+      const filteredData = data.data.filter(item => 
+        item.attributes.rich && item.attributes.rich.includes(category)
+      );
+      
       // Filtrelenmiş verileri state'e ata
-      setFilteredData(filteredItems);
+      setFilteredData(filteredData);
     };
-
-    //Burası api değiştiğinde kullanılacak 
-    // const handleCategoryClick = (category) => {
-    //   setSelectedCategory(category);
-    //   // Kategoriye göre filtreleme
-    //   const filteredItems = data.filter(item => {
-    //      // item.rich'in tanımlı olduğunu kontrol et
-    //      if (item.rich) {
-    //          // Her bir item için rich dizisini döngüye al
-    //          return item.rich.some(richItem => {
-    //              // richItem.children'in tanımlı olduğunu kontrol et
-    //              if (richItem.children) {
-    //                  // richItem'in children dizisini döngüye al
-    //                  return richItem.children.some(child => {
-    //                      // child'in text özelliğini kontrol et ve kategoriye göre filtreleme
-    //                      const categories = child.text.split(', '); // Kategorileri ayır
-    //                      return categories.includes(category); // Kategoriye göre filtreleme
-    //                  });
-    //              }
-    //              return false;
-    //          });
-    //      }
-    //      return false;
-    //   });
-    //   setFilteredData(filteredItems);
-    //  };
 
     const handleImageClick = (src, alt) => {
       setSelectedImage({ src, alt });
@@ -92,49 +65,21 @@ const HomeContent = ({ locale }) => {
           </ul>
         </div>
 
-        {/* Burası api değiştiğinde kullanılacak */}
-        {/* <div className="card-container">
-          {(filteredData?.length > 0 ? filteredData : data)?.map((item) => {
-            return (
-              <div key={item?.id} className="card">
-                <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.img_url}`, item?.slug)}>
-                  <img src={`${item?.img_url}`} alt={item?.name} className="img-fluid" />
-                </div>
-                <Link to={`/coffeeDetails/${item?.slug}`}>
-                  <div className="card-body">
-                    <div className='item-container' id='container'>
-                      <div className='item-details'>
-                        <h2 className="card-title">{item?.name}</h2>
-                        <p className='card-text'>Description: {item?.description}</p>
-                        <p className='card-text'>Origin: {item?.origin}</p>
-                        <span className='card-text price'>Price: {item?.price}💲</span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-                {showModal && selectedImage && (
-                  <Modal src={selectedImage.src} alt={selectedImage.alt} onClose={handleCloseModel}/>
-                )}
-              </div>
-            );
-          })}
-        </div> */}
-
         <div className="card-container">
           {(filteredData?.length > 0 ? filteredData : data?.data)?.map((item) => {
               return (
                 <div key={item?.id} className="card">
-                  <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.imgUrl}`, item?.attributes?.slug)}>
-                    <img src={`${item?.attributes?.imgUrl}`} alt={item?.attributes?.name} className="img-fluid" />
+                  <div className="card-img" id='image' onClick={() => handleImageClick(`${item?.attributes?.image}`, item?.attributes?.slug)}>
+                    <img src={`${item?.attributes?.image}`} alt={item?.attributes?.Name} className="img-fluid" />
                   </div>
                   <Link to={`/coffeeDetails/${item?.attributes?.slug}`} style={{ textDecoration: 'none' }}>
                     <div className="card-body">
                       <div className='item-container' id='container'>
                         <div className='item-details'>
-                          <h2 className="card-title">{item?.attributes?.name}</h2>
+                          <h2 className="card-title">{item?.attributes?.Name}</h2>
                           <p className='card-text'>Description: {item?.attributes?.description}</p>
                           <p className='card-text'>Origin: {item?.attributes?.origin}</p>
-                          <span className='card-text price'>Price: {item?.attributes?.price}</span>
+                          <span className='card-text price'>Price: {item?.attributes?.price}💲</span>
                         </div>
                       </div>
                     </div>
