@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "80:80"  # HTTP için port yönlendirmesi
+      - "443:443"  # HTTPS için port yönlendirmesi
+    volumes:
+      - ./ssl:/etc/ssl  # SSL sertifikaları
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Özel Nginx konfigürasyonu
+      - ./src:/src  # Proje dosyalarının bağlanması
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
