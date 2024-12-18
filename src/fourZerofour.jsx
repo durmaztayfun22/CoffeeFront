@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"; // Importing React library for JSX
+import { useEffect } from "react"; // Importing React library for JSX
 import Swal from "sweetalert2";
 
 // Functional component for a Not Found Page

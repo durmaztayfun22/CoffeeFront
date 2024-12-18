@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import './HomeContent.css'
 import Modal from './Modal';
 import NotFoundPage from './fourZerofour';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
@@ -94,5 +95,10 @@ const HomeContent = ({ locale }) => {
       </>
     );
 }
+
+
+HomeContent.propTypes = {
+  locale: PropTypes.string.isRequired,
+};
 
 export default HomeContent;

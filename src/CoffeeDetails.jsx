@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'; // Importing React library for JSX and hooks
+import { useEffect, useState } from 'react'; // Importing React library for JSX and hooks
 import { useParams } from 'react-router-dom'; // Importing useParams hook from react-router-dom
 import axios from 'axios'; // Importing axios for HTTP requests
 import NotFoundPage from './fourZerofour'; // Importing NotFoundPage component
 import './CoffeeDetails.css' // Importing CSS file for styling
+import PropTypes from 'prop-types';
 
 
 
@@ -45,6 +46,10 @@ const CoffeeDetails = ({ locale }) => {
         </div>
       </>
     )
-}
+};
 
 export default CoffeeDetails; // Exporting the CoffeeDetails component
+
+CoffeeDetails.propTypes = {
+  locale: PropTypes.string.isRequired,
+};

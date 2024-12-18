@@ -1,8 +1,11 @@
 // Header.jsx
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLocation, Link  } from 'react-router-dom';
 
+
 import './Header.css';
+
+import PropTypes from 'prop-types';
 
 const Header = ({ locale, setLocale }) => {
     const [pageTitle, setPageTitle] = useState('Coffees');
@@ -139,5 +142,12 @@ const Header = ({ locale, setLocale }) => {
         </>
     )
 }
+
+    Header.propTypes = {
+    locale: PropTypes.string.isRequired,
+    setLocale: PropTypes.func.isRequired,
+    setPageTitle: PropTypes.func.isRequired,
+    setPageDescription: PropTypes.func.isRequired
+  };
 
 export default Header;

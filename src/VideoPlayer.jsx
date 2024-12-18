@@ -1,4 +1,4 @@
-import React from "react";
+
 import './VideoPlayer.css'; // VideoPlayer bileşeninin stillerini içe aktarır
 
 const VideoPlayer = () => {

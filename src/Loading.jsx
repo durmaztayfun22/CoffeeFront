@@ -1,4 +1,4 @@
-import React from "react"; // Importing React library for JSX
+
 import './Loading.css'
 
 // Functional component for a Loading Page

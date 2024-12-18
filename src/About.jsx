@@ -1,4 +1,5 @@
-import React from "react";
+import PropTypes from 'prop-types';
+
 import VideoPlayer from "./VideoPlayer";
 import './VideoPlayer.css';
 import './About.css';
@@ -45,6 +46,10 @@ const About = ({ locale }) => {
       </main>
     </>
   )
+};
+
+About.propTypes = {
+  locale: PropTypes.string.isRequired,
 }
 
 export default About;

@@ -1,4 +1,4 @@
-import React from "react"; // Importing React library for JSX
+import PropTypes from 'prop-types';
 import './Modal.css'  // Importing CSS file for styling
 
 // Functional component for a modal with props
@@ -12,5 +12,12 @@ const Modal = ({src, alt, onClose}) => {
     
     )
 }
+
+
+Modal.propTypes = {
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired
+};
 
 export default Modal; // Exporting the Modal component
