@@ -1,7 +1,7 @@
 # Base Node.js image
 FROM node:18-alpine
 # Set the working directory
-WORKDIR /app
+WORKDIR /src
 # Copy package.json and package-lock.json
 COPY package*.json ./
 # Install dependencies
