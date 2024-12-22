@@ -36,10 +36,9 @@ Sunucuyu yerel makinenizde başlatmak için aşağıdaki komutları kullanabilir
   ### **Adım 2: Web Sitesini Görüntüleyin**
 
 Dilediğiniz kahve çeşitlerini bulabilir, arayabilir ve seçebilirsiniz. Örnek bir resim:
-- Resim-1
-(images/readmeImage/resim-1.png)
-- Resim-2
-(images/readmeImage/resim-2.png)
-- Resim-3
-(images/readmeImage/resim-3.png)
+![Resim-1](images/readmeImage/resim-1.png)
+
+![Resim-2](images/readmeImage/resim-2.png)
+
+![Resim-3](images/readmeImage/resim-3.png)
 
