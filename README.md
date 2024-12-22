@@ -1,5 +1,5 @@
 ﻿## **CoffeeFront** 🚀
-Bu proje bazı akaryakıt istasyonlarının verileri JavaScript projesidir.
+Bu proje en güzel kahveleri ve kahve çeşitlerinin tarihçelerini gösteren bir React projesidir.
 ## **Özellikler** ✨
 
 -   Özellik 1: Kahve verileri güncel bir şekilde gelmektedir.
