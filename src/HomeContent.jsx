@@ -14,7 +14,7 @@ const HomeContent = ({ locale }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const [filteredData, setFilteredData] = useState([]);
 
-    const api = locale === 'tr' ? 'https://st2-x0kh.onrender.com/api/coffees?locale=tr' : 'https://st2-x0kh.onrender.com/api/coffees?locale=en';
+    const api = locale === 'tr' ? 'https://strapi.tayfundurmaz.net/api/coffees?locale=tr' : 'https://strapi.tayfundurmaz.net/api/coffees?locale=en';
 
     const fetchData = async () => {
       try {
