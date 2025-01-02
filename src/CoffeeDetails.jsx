@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 const CoffeeDetails = ({ locale }) => {
     const { slug } = useParams(); // Extracting slug from URL parameters using useParams hook
     const [coffee, setCoffee] = useState(null); // State for storing coffee data
-    const api = locale === 'tr' ? 'https://st2-x0kh.onrender.com/api/coffees?locale=tr' : 'https://st2-x0kh.onrender.com/api/coffees?locale=en';
+    const api = locale === 'tr' ? 'https://strapi.tayfundurmaz.net/api/coffees?locale=tr' : 'https://strapi.tayfundurmaz.net/api/coffees?locale=en';
     useEffect(() => {
         // Function to fetch coffee data
         const fetchData = async () => {

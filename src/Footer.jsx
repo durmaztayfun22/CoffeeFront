@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitterSquare, faInstagramSquare, faFacebookSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
@@ -49,5 +49,10 @@ const Footer = ({ locale }) => {
         </div>
     )
 }
+
+Footer.propTypes = {
+    locale: PropTypes.string.isRequired,
+  };
+
 
 export default Footer;

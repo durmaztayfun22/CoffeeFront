@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import './Contact.css'
 import axios from "axios";
 import { toast } from 'react-toastify';
@@ -104,6 +104,10 @@ const Contact = ({ locale }) => {
       <ToastContainer />
     </main>
   );
+};
+
+Contact.propTypes = {
+  locale: PropTypes.string.isRequired,
 };
 
 export default Contact;
